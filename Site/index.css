@@ -34,15 +34,34 @@
 
 
       .tsiyou-landing{
-        background-image: url("beta.png");
+        background-image: url("bg2.png");
         width: 1583px;
         min-height: 700px;
         max-height: auto;
+        text-align: center;
+        
       }
+
+      .tsiyou-landing p {
+        position: absolute;
+        top: 50%;
+        left: 660px;
+        color: white;
+        font-size: 18px;
+      }
+
 
       .btn-tsiyou{
         border: none;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 24px;
         background-color: #ea5422;
+        position: absolute;
+        top: 55%;
+        left: 540px;
+        color: white;
       }
 
 
