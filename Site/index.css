@@ -81,10 +81,14 @@
       }
 
 
-      /* Padding */
+      /* Padding and margins*/
 
       .tsipb{
           padding-bottom: 130px;
       }
 
+      .tsimargin{
+          margin-right: 500px;
+          margin-left: 500px;
+      } 
   
