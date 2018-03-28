@@ -9,6 +9,7 @@
         padding: 20px 10px;
         padding-left: 70px;
         
+       
     }
 
     .tsiyou-header a {
@@ -33,6 +34,8 @@
       }
 
 
+      /*  */
+
       .tsiyou-landing{
         background-image: url("bg2.png");
         width: 1583px;
@@ -48,6 +51,8 @@
         top: 300px;
         color: white;
         font-size: 18px;
+        font-family: 'Libre Franklin', sans-serif;
+        font-weight: 100;
       }
 
 
@@ -61,14 +66,26 @@
         position: relative;
         top: 300px;
         color: white;
-        font-family:'Roboto',sans-serif;
+        font-family: 'Libre Franklin', sans-serif;
         margin:0 auto;
       }
 
    
+      /* About us */
+
+      .about{
+          padding-top: 50px;
+          font-family: 'Libre Franklin', sans-serif;
+          font-weight: 700;
+          font-size: 50px;
+      }
+
+      h1{
+          padding-top: 30px;
+      }
 
 
 
     body {
-        background-color: gray
+       
     }
