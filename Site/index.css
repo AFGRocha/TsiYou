@@ -39,13 +39,13 @@
         min-height: 700px;
         max-height: auto;
         text-align: center;
-        
+        width:100%;
+        margin:0 auto;
       }
 
       .tsiyou-landing p {
-        position: absolute;
-        top: 50%;
-        left: 660px;
+        position: relative;
+        top: 300px;
         color: white;
         font-size: 18px;
       }
@@ -58,11 +58,14 @@
         text-decoration: none;
         font-size: 24px;
         background-color: #ea5422;
-        position: absolute;
-        top: 55%;
-        left: 540px;
+        position: relative;
+        top: 300px;
         color: white;
+        font-family:'Roboto',sans-serif;
+        margin:0 auto;
       }
+
+   
 
 
 
