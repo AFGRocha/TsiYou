@@ -33,6 +33,18 @@
       }
 
 
+      .tsiyou-landing{
+        background-image: url("beta.png");
+        width: 1583px;
+        min-height: 700px;
+        max-height: auto;
+      }
+
+      .btn-tsiyou{
+        border: none;
+        background-color: #ea5422;
+      }
+
 
 
     body {
