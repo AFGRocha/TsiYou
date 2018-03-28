@@ -33,7 +33,17 @@
         padding-top: 5px;
       }
 
+      /* Footer*/
+      .tsiyou-footer{
 
+        background-color: rgb(14, 14, 14);
+        padding: 5px
+      }
+
+      .tsiyou-footer p{
+          color: white;
+          padding-top: 7px;
+      }
       /*  */
 
       .tsiyou-landing{
@@ -81,14 +91,10 @@
       }
 
 
-      /* Padding and margins*/
+      /* Padding*/
 
       .tsipb{
           padding-bottom: 130px;
       }
 
-      .tsimargin{
-          margin-right: 500px;
-          margin-left: 500px;
-      } 
   
