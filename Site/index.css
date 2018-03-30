@@ -36,7 +36,7 @@
         padding-right: 30px;
         padding-top: 5px;
       }
-      
+
       /* Footer*/
       .tsiyou-footer{
 
@@ -53,12 +53,13 @@
       .tsiyou-landing{
         background-image: url("bg2.png");
         width: 1583px;
-        min-height: 700px;
+        min-height: 800px;
         max-height: auto;
         text-align: center;
         width:100%;
         margin:0 auto;
-        padding-top: 16px;
+        padding-top: 30px;
+        
       }
 
       .tsiyou-landing p {
