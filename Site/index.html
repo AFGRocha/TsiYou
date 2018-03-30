@@ -26,11 +26,11 @@
     
      
 
-    <header class="tsiyou-header" id="myHeader">
+    <header class="header" id="myHeader">
 
         <img src="./images/teste.png " width="200">
 
-        <div class="tsiyou-header-right">
+        <div class="header-right">
         
                 <a href="#"> Login</a>
                 <a>|</a>
@@ -40,6 +40,21 @@
         </div>
     </header>
 
+
+    <script>
+      window.onscroll = function() {myFunction()};
+      
+      var header = document.getElementById("myHeader");
+      var sticky = header.offsetTop;
+      
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+      </script>
     
     <div class ="tsiyou-landing">
         <p>Eventos de TSIW? TsiYou There!</p>

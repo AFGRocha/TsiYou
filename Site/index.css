@@ -2,17 +2,18 @@
 
     /* TsiYou Header */
 
-    .tsiyou-header {
+    .header {
 
         overflow: hidden;
         background-color: #ffffff;
         padding: 20px 10px;
         padding-left: 70px;
+        z-index: 1;
         
        
     }
 
-    .tsiyou-header a {
+    .header a {
         float: left;
         color: black;
         text-align: center;
@@ -23,14 +24,29 @@
         border-radius: 4px;
       }
 
-      .tsiyou-header a:hover {
+      .header a:hover {
         color: #ea5422;
       }
 
-      .tsiyou-header-right {
+      .header-right {
         float: right;
         padding-right: 30px;
         padding-top: 5px;
+      }
+
+
+      .content {
+        padding: 16px;
+      }
+      
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+      
+      .sticky + .content {
+        padding-top: 102px;
       }
 
       /* Footer*/
