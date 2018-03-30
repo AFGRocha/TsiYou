@@ -32,31 +32,71 @@
 
         <div class="header-right">
         
-                <a href="#"> Login</a>
+                <a href="#" data-toggle="modal" data-target="#loginModal"> Login</a>
                 <a>|</a>
-                <a href="#"> Sign Up</a>
+                <a href="#" data-toggle="modal" data-target="#signupModal"> Sign Up</a>
                 
          
         </div>
     </header>
+  
 
+<div class="container">
+      <!-- Login Modal-->
 
-    <script>
-      window.onscroll = function() {myFunction()};
+ <div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+  
+        <div class="modal-header">
+          <h4>Login</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
       
-      var header = document.getElementById("myHeader");
-      var sticky = header.offsetTop;
-      
-      function myFunction() {
-        if (window.pageYOffset >= sticky) {
-          header.classList.add("sticky");
-        } else {
-          header.classList.remove("sticky");
-        }
-      }
-      </script>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      </div>
+      </div>
+
+      </div>
+ 
+      <div class="container">
+          <!-- Sign Up Modal-->
     
-    <div class ="tsiyou-landing">
+     <div class="modal fade" id="signupModal" role="dialog">
+        <div class="modal-dialog">
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+      
+            <div class="modal-header">
+              <h4>Sign Up</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+          
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+    
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+
+
+
+      <div class ="tsiyou-landing">
         <p>Eventos de TSIW? TsiYou There!</p>
         <button type="button" class="btn-tsiyou">Clique aqui para ver a lista de atividades</button>
     </div>
@@ -117,6 +157,10 @@
 
     <footer class="tsiyou-footer"><center><p>ESMAD © 2018</p></center></footer>
 
+
+    </div>
+    
+    
 
 </body>
 </html>

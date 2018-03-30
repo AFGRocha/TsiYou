@@ -9,6 +9,9 @@
         padding: 20px 10px;
         padding-left: 70px;
         z-index: 1;
+        position: fixed;
+        top: 0;
+        width: 100%;
         
        
     }
@@ -33,22 +36,7 @@
         padding-right: 30px;
         padding-top: 5px;
       }
-
-
-      .content {
-        padding: 16px;
-      }
       
-      .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-      }
-      
-      .sticky + .content {
-        padding-top: 102px;
-      }
-
       /* Footer*/
       .tsiyou-footer{
 
@@ -70,6 +58,7 @@
         text-align: center;
         width:100%;
         margin:0 auto;
+        padding-top: 16px;
       }
 
       .tsiyou-landing p {
