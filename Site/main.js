@@ -13,9 +13,22 @@ class User{
     }
 }
 
+//Hard code user for testing
 
+let Users = [
+    {
+        username: "Admin",
+        password: "admin123",
+        email: "admin@admin.com"
+    },
+    {
+        username: "Daiki",
+        password: "chupp",
+        email: "daiki@admin.com"
+    }
+]
 
-
+//
 
 function init(){
 
@@ -23,18 +36,38 @@ function init(){
     let usernameLogin = document.getElementById("username")
     let passwordLogin = document.getElementById("password")
     let loginBtn = document.getElementById("login")
+    let logChecker = document.getElementById("logCheck")
   
 
     loginBtn.addEventListener("click", function () {
 
-        console.log("User Logged in")
-        console.log("Username: " + usernameLogin.value)
-        console.log("Password: " + passwordLogin.value)
+        for(let i = 0; i < Users.length; i++){
 
-        document.getElementById('logText').style.visibility = 'hidden';
-        document.getElementById('signText').style.visibility = 'hidden';
-        document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px"></i>';
-        $('#loginModal').modal('hide');
+            if (usernameLogin.value == Users[i].username){
+
+                if (passwordLogin.value == Users[i].password){
+                    console.log("User Logged in")
+                    console.log("Username: " + usernameLogin.value)
+                    console.log("Password: " + passwordLogin.value)
+            
+                    document.getElementById('logText').style.visibility = 'hidden';
+                    document.getElementById('signText').style.visibility = 'hidden';
+                    document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px"></i>';
+                    $('#loginModal').modal('hide');
+                    break
+                }
+
+                else{
+                    logChecker.innerHTML = "O Username ou Password estão errados"
+                }
+            }
+
+            else{
+                logChecker.innerHTML = "O Username ou Password estão errados"
+            }
+        }
+
+      
         
     })
 
@@ -46,7 +79,7 @@ function init(){
     let passwordSign = document.getElementById("newPass")
     let passwordSign2 = document.getElementById("newPass2")
     let signupBtn = document.getElementById("signup")
-    let checker = document.getElementById("signCheck")
+    let signChecker = document.getElementById("signCheck")
 
     signupBtn.addEventListener("click", function () {
 
@@ -56,7 +89,7 @@ function init(){
             $('#signupModal').modal('hide');
         }
         else{
-            checker.innerHTML = "Passwords não estao iguais"
+            signChecker.innerHTML = "Passwords não estao iguais"
         }
 
 
