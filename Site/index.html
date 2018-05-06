@@ -59,7 +59,7 @@
         </div>
       
         <div class="modal-body">
-            <form>
+            <form id="login">
               <p>User Name</p>
               <input type="text" id ="username" value="" required>
               <br></br>
@@ -67,7 +67,7 @@
               <input type="password" id="password" value="" required>
               <p id="logCheck" style="color:red"></p>
               <br><br>
-              <input type="button" id="login" class="btn btn-default" value="Login">
+              <input type="submit" class="btn btn-default" value="Login">
             </form> 
         </div>
 
@@ -95,7 +95,7 @@
             </div>
           
             <div class="modal-body">
-                <form>
+                <form id="signup">
                     <p>Email:</p>
                     <input type="text" id="email" value="" required>
                     <p>User Name</p>
@@ -108,7 +108,7 @@
                     <input type="password" id="newPass2" value="" required>
                     <p id="signCheck" style="color:red"></p>
                     <br></br>
-                    <input type="button" id="signup" class="btn btn-default" value="Sign Up">
+                    <input type="submit" class="btn btn-default" value="Sign Up">
                   </form> 
             </div>
     
@@ -155,7 +155,13 @@
               
 
               <div class="tsipb bg-dark text-white">
-                    <center><p class="tsiyou-title">Docentes de TSIW</p></center>
+                    <center><p class="tsiyou-title">Docentes de TSIW</p>
+                      <div id="Docentes"></div>
+                      <br>
+                      <p>Mais Docentes</p>
+                      <a><i class="fa fa-angle-double-down" style="font-size:70px;color:white"></i></i></a>
+                    </center>
+                   
             
             
             </div>
@@ -164,7 +170,7 @@
 
                     <center><p class="tsiyou-title">Parcerias</p></center>
         
-                    <div class="container-fluid">
+                        <div class="container-fluid">
                          
                             <div class="row">
                               <div class="col-md-4 col-lg-4"></div>
@@ -175,8 +181,12 @@
                               </div>
                               <div class="col-md-4 col-lg-4"></div>
                              
+                              
+                             
                             </div>
-                          </div>
+                        </div>
+                        <center><p>Mais Parcerias</p>
+                          <a><i class="fa fa-angle-double-down" style="font-size:70px;"></i></i></a></center>
             </div>
         
     </div>
