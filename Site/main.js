@@ -17,6 +17,17 @@ class User{
     }
 }
 
+//Parcerias 
+
+class Partner{
+    constructor(company,local,link,image){
+        this.company = company
+        this.local = local
+        this.link = link
+        this.image = image
+    }
+}
+
 
 
 
@@ -35,6 +46,13 @@ Users.push(docenteTest)
 Users.push(docenteTest)
 Users.push(docenteTest)
 
+
+//Hard code parcerias 
+let testPartner = new Partner("Nonius Software","Moreira da Maia","https://www.noniussoftware.com/en/","https://www.noniussoftware.com/wp-content/uploads/2015/04/Logo_Nonius.png")
+let Partners = []
+Partners.push(testPartner)
+Partners.push(testPartner)
+Partners.push(testPartner)
 
 
 
@@ -119,6 +137,7 @@ function init(){
     })
 
     renderDocentes()
+    renderPartners()
 }
 
 
@@ -160,6 +179,49 @@ function renderDocentes(){
         
             str += '</div>'
             divDocente.innerHTML = str
+
+            break
+        }
+    }
+}
+
+
+
+//Lista de parcerias 
+
+function renderPartners(){
+
+    let divPartners = document.getElementById("Parcerias")
+
+    let counter = 0
+    let str = ""
+    str += '<div class="row">'
+    //str += '<div class="col-md-2 col-lg-2"></div>'
+    
+    for(let i = 0; i < Partners.length; i++){
+
+        
+            divPartners.innerHTML = ""
+
+            counter++
+
+            
+            
+            
+            str += '<div class="col-sm-4 col-md-4 col-lg-4">'
+            str += '<center><img src="' + Partners[i].image + '"></center>'
+
+            str += '</div>'
+            //str += '<div class="col-md-1 col-lg-1"></div>'
+           
+            
+            divPartners.innerHTML = str
+        
+
+        if(counter == 3){
+        
+            str += '</div>'
+            divPartners.innerHTML = str
 
             break
         }
