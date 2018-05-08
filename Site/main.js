@@ -82,7 +82,33 @@ function init(){
     let passwordLogin = document.getElementById("password")
     let loginBtn = document.getElementById("login")
     let logChecker = document.getElementById("logCheck")
+    
   
+    //Local Storage test
+    if (localStorage.getItem("loggedUser")) {
+
+        let pastUser  = JSON.parse(localStorage.loggedUser)
+        console.log("User Logged in")
+        console.log("Username: " + pastUser.username)
+        console.log("Password: " + pastUser.password)
+        //console.log(Users[i])
+        
+
+
+        document.getElementById('logText').style.display = 'none';
+        document.getElementById('signText').style.display = 'none';
+        if (pastUser.admin == 1){
+            document.getElementById('userText').style.display = 'inline'
+            document.getElementById('userText').innerHTML = pastUser.username + " " + '<i class="fa fa-user" style="font-size:24px;color:red"></i>';
+            document.getElementById('logout').style.display = 'inline'
+        }
+
+        else{
+            document.getElementById('userText').style.display = 'inline'
+            document.getElementById('userText').innerHTML = pastUser.username + " " + '<i class="fa fa-user" style="font-size:24px"></i>';
+            document.getElementById('logout').style.display = 'inline'
+        }
+    }
 
     loginBtn.addEventListener("submit", function (event) {
 
@@ -93,19 +119,27 @@ function init(){
             if (usernameLogin.value == Users[i].username){
 
                 if (passwordLogin.value == Users[i].password){
+
+                    //Local Storage test 
+                    localStorage.loggedUser = JSON.stringify(Users[i])
+
                     console.log("User Logged in")
                     console.log("Username: " + usernameLogin.value)
                     console.log("Password: " + passwordLogin.value)
                     console.log(Users[i])
             
-                    document.getElementById('logText').style.visibility = 'hidden';
-                    document.getElementById('signText').style.visibility = 'hidden';
+                    document.getElementById('logText').style.display = 'none';
+                    document.getElementById('signText').style.display = 'none';
                     if (Users[i].admin == 1){
+                        document.getElementById('userText').style.display = 'inline'
                         document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px;color:red"></i>';
+                        document.getElementById('logout').style.display = 'inline'
                     }
 
                     else{
+                        document.getElementById('userText').style.display = 'inline'
                         document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px"></i>';
+                        document.getElementById('logout').style.display = 'inline'
                     }
                     
                     $('#loginModal').modal('hide');
@@ -149,6 +183,19 @@ function init(){
         else{
             signChecker.innerHTML = "Passwords não estao iguais"
         }
+
+
+    })
+
+    //Logout
+    let logout = document.getElementById("logout")
+    logout.addEventListener("click",function(){
+
+        document.getElementById('logText').style.display = 'inline';
+        document.getElementById('signText').style.display = 'inline';
+        document.getElementById('userText').style.display = 'none'
+        document.getElementById('logout').style.display = 'none'
+        localStorage.removeItem("loggedUser")
 
 
     })
