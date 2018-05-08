@@ -14,6 +14,7 @@ class User{
         this.admin = 0 
         this.image = ""
         this.name = ""
+        this.recomendations = []
     }
 }
 
@@ -26,6 +27,22 @@ class Partner{
         this.link = link
         this.image = image
     }
+}
+
+//Eventos
+class Event{
+    constructor(desc,data,hour,local,category,accountable,image){
+       // this.id =
+       this.desc = desc
+       this.data = data
+       this.hour = hour
+       this.local = local 
+       this.category = category
+       this.accountable = accountable
+       this.image = image
+
+    }
+
 }
 
 
