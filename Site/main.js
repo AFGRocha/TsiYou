@@ -1,7 +1,21 @@
 window.onload = function() {
 
+    let control = document.title
+    console.log("Loaded: " + control)
     init()
 
+    if (control == "TsiYou"){
+        document.getElementsByTagName("BODY")[0].onresize = function() {
+            let w = window.innerWidth;
+            let h = window.innerHeight;
+            console.log("Largura atual da página: " + w)
+            console.log("Altura atual da página: " + h)
+            renderDocentes()
+        };
+    }
+  
+
+ 
 }
 //Users
 
@@ -31,8 +45,9 @@ class Partner{
 
 //Eventos
 class Event{
-    constructor(desc,data,hour,local,category,accountable,image){
+    constructor(name,desc,data,hour,local,category,accountable,image){
        // this.id =
+       this.name = name
        this.desc = desc
        this.data = data
        this.hour = hour
@@ -71,6 +86,18 @@ Partners.push(testPartner)
 Partners.push(testPartner)
 Partners.push(testPartner)
 
+//Hard code events
+
+let Events = []
+let eventTest = new Event("ESMAPP","Algo","19/04/2018","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+Events.push(eventTest)
+Events.push(eventTest)
+Events.push(eventTest)
+Events.push(eventTest)
+Events.push(eventTest)
+Events.push(eventTest)
+Events.push(eventTest)
+Events.push(eventTest)
 
 
 //
@@ -200,8 +227,19 @@ function init(){
 
     })
 
-    renderDocentes()
-    renderPartners()
+
+    let control = document.title
+
+    if (control == "TsiYou"){
+        renderDocentes()
+        renderPartners()
+    }
+
+    if (control == "TsiYou - Eventos"){
+        renderEvents()
+    }
+
+    
 }
 
 
@@ -216,35 +254,74 @@ function renderDocentes(){
     let counter = 0
     let str = ""
     str += '<div class="row">'
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+
+    if (w >= 1000){
+        for(let i = 0; i < Users.length; i++){
+
+            if (Users[i].docente == 1) {
+                divDocente.innerHTML = ""
     
-    for(let i = 0; i < Users.length; i++){
-
-        if (Users[i].docente == 1) {
-            divDocente.innerHTML = ""
-
-            counter++
-
+                counter++
+    
+                
+                
+                
+                str += '<div class="col-sm-12 col-md-4 col-lg-4">'
+                str += '<div class="card" style="width: 18rem;">'
+                str += '<img class="card-img-top" src="' + Users[i].image + '" alt="Card image cap">'
+                str += '<div class="card-body">'
+                str += '<h5 class="card-title text-dark">' + Users[i].name + '</h5>'   
+                str += '</div></div></div>'
+                
+               
+                
+                divDocente.innerHTML = str
+            }
+    
+            if(counter == 3){
             
-            
-            
-            str += '<div class="col-sm-12 col-md-4 col-lg-4">'
-            str += '<div class="card" style="width: 18rem;">'
-            str += '<img class="card-img-top" src="' + Users[i].image + '" alt="Card image cap">'
-            str += '<div class="card-body">'
-            str += '<h5 class="card-title text-dark">' + Users[i].name + '</h5>'   
-            str += '</div></div></div>'
-            
-           
-            
-            divDocente.innerHTML = str
+                str += '</div>'
+                divDocente.innerHTML = str
+    
+                break
+            }
         }
+    }
+    
 
-        if(counter == 3){
-        
-            str += '</div>'
-            divDocente.innerHTML = str
 
-            break
+    if(w < 1000){
+        for(let i = 0; i < Users.length; i++){
+
+            if (Users[i].docente == 1) {
+                divDocente.innerHTML = ""
+    
+                counter++
+    
+                
+                
+                
+                str += '<div class="col-sm-12 col-md-6 col-lg-6">'
+                str += '<div class="card" style="width: 18rem;">'
+                str += '<img class="card-img-top" src="' + Users[i].image + '" alt="Card image cap">'
+                str += '<div class="card-body">'
+                str += '<h5 class="card-title text-dark">' + Users[i].name + '</h5>'   
+                str += '</div></div></div>'
+                
+               
+                
+                divDocente.innerHTML = str
+            }
+    
+            if(counter == 2){
+            
+                str += '</div>'
+                divDocente.innerHTML = str
+    
+                break
+            }
         }
     }
 }
@@ -290,4 +367,69 @@ function renderPartners(){
             break
         }
     }
+}
+
+
+//Lista de eventos
+
+function renderEvents(){
+    let divEvents = document.getElementById("Events")
+
+    let str = ""
+    
+    let counter = 0
+    let eventCounter = 0
+    for(let i = 0; i < Events.length; i++){
+
+       
+            divEvents.innerHTML = ""
+
+            if( counter == 0){
+                str += '<div class="row">'
+            }
+
+
+            counter++
+            eventCounter++
+            
+            
+            str += '<div class="col-sm-12 col-md-4 col-lg-4">'
+            str += '<div class="card" style="width: 18rem;">'
+            str += '<img class="card-img-top" src="' + Events[i].image + '" alt="Card image cap">'
+            str += '<div class="card-body">'
+            str += '<h5 class="card-title text-dark">' + Events[i].name + '</h5>'  
+            str += '<p class="card-title text-dark">' + Events[i].data + '</p>' 
+            str += '<p class="card-title text-dark">' + Events[i].local + '</p>'  
+            str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="openEvent" value="Ver mais" id="'+ eventCounter + '"></center>' 
+            str += '</div></div></div>'
+
+            divEvents.innerHTML = str
+            
+            if (counter == 3){
+                counter = 0
+
+                str += '</div><br><br>'
+
+            divEvents.innerHTML = str
+
+            }
+    
+    }
+
+
+      //Cria o butao remover que remove o respetivo filme de acordo o seu ID
+      let btnOpen = document.getElementsByClassName("openEvent")
+
+
+      for(let i = 0; i < btnOpen.length; i++){
+          btnOpen[i].addEventListener("click", function(){
+
+            let eventTitle = document.getElementById("eventTitle")
+
+            eventTitle.innerHTML = Events[i].name
+
+        
+
+          }) 
+      }
 }
