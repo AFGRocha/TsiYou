@@ -122,3 +122,12 @@
         color: white;
         border-radius: 8px
       }
+
+      .btn-b4{
+        border: none;
+        text-align: center;
+        text-decoration: none;  
+        background-color: #ea5422;
+        color: white;
+        border-radius: 8px
+      }
