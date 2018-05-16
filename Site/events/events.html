@@ -24,11 +24,11 @@
     
             <div class="header-right">
             
-                    <a href="#" id="logText" data-toggle="modal" data-target="#loginModal"> Login</a>
-                    <a href="#" id="userText" style="display:none">|</a>
-                    <a >|</a>
-                    <a href="#" id="signText" data-toggle="modal" data-target="#signupModal"> Sign Up</a>
-                    <a href="#" id="logout" style="display:none">Logout</a>
+                    <a class="header-links"  href="#" id="logText" data-toggle="modal" data-target="#loginModal"> Login</a>
+                    <a class="header-links" href="#" id="userText" style="display:none">|</a>
+                    <a class="header-links" >|</a>
+                    <a class="header-links" href="#" id="signText" data-toggle="modal" data-target="#signupModal"> Sign Up</a>
+                    <a class="header-links" href="#" id="logout" style="display:none">Logout</a>
                     
                     
                     
@@ -116,12 +116,29 @@
               </div>
 
   <!-- Eventos -->
+  <div class="tsipt bg-dark text-white">
+      <div class="container"> 
+          <form class="form-inline tsipt bg-dark text-white">
+            <div class="form-group mb-2">
+              <label for="selUsers">Filtrar</label>
+              <select>
+                  <option value="volvo"></option>
+                  <option value="saab">Eventos mais recentes</option>
+                  <option value="opel">Eventos melhor pontuados</option>
+                  <option value="audi">Eventos realizados</option>
+                  <option value="audi">Eventos a realizar</option>
+              </select>
+            </div>
+            <button id="btnSearch" type="button" class="btn btn-b4">Procurar</button>
+          
+            <button id="btnAddEvent" type="button" class="btn btn-b4" data-toggle="modal" data-target="#addTripModal" style="display:none">Adicionar Evento</button>
+          </form>
+        </div>
+        <br>
+    <div class="container" id="Events">
 
-              <div class="tsipt bg-dark text-white">
-                  <div class="container" id="Events">
-
-                  </div>
-              </div>
+    </div>
+  </div>
 
 <div class="container">
               <!-- The Event Modal -->

@@ -90,8 +90,9 @@ Partners.push(testPartner)
 
 let Events = []
 let eventTest = new Event("ESMAPP","Algo","19/04/2018","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest2 = new Event("ESMAPP2","Algo","19/04/2018","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 Events.push(eventTest)
-Events.push(eventTest)
+Events.push(eventTest2)
 Events.push(eventTest)
 Events.push(eventTest)
 Events.push(eventTest)
@@ -169,6 +170,10 @@ function init(){
                         document.getElementById('logout').style.display = 'inline'
                     }
                     
+                    if (Users[i].docente == 1 || Users[i].admin == 1){
+                        document.getElementById("btnAddEvent").style.display = 'inline'
+                    }
+
                     $('#loginModal').modal('hide');
                     break
                 }
@@ -227,6 +232,15 @@ function init(){
 
     })
 
+    //Butao de evento ativar caso o admin ou docente venham de outra pagina
+    if (localStorage.getItem("loggedUser")) {
+
+        let currentUser  = JSON.parse(localStorage.loggedUser)
+        
+        if (currentUser.admin == 1 || currentUser.docente == 1){
+            document.getElementById("btnAddEvent").style.display = 'inline'
+        }
+    }
 
     let control = document.title
 
@@ -390,7 +404,7 @@ function renderEvents(){
 
 
             counter++
-            eventCounter++
+           
             
             
             str += '<div class="col-sm-12 col-md-4 col-lg-4">'
@@ -400,10 +414,11 @@ function renderEvents(){
             str += '<h5 class="card-title text-dark">' + Events[i].name + '</h5>'  
             str += '<p class="card-title text-dark">' + Events[i].data + '</p>' 
             str += '<p class="card-title text-dark">' + Events[i].local + '</p>'  
-            str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="openEvent" value="Ver mais" id="'+ eventCounter + '"></center>' 
+            str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="btn openEvent" value="Ver mais" id="'+ eventCounter + '"></center>' 
             str += '</div></div></div>'
 
             divEvents.innerHTML = str
+            eventCounter++
             
             if (counter == 3){
                 counter = 0
