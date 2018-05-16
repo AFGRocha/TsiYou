@@ -121,7 +121,7 @@
           <form class="form-inline tsipt bg-dark text-white">
             <div class="form-group mb-2">
               <label for="selUsers">Filtrar</label>
-              <select>
+              <select id="eventFilter">
                   <option value="volvo"></option>
                   <option value="saab">Eventos mais recentes</option>
                   <option value="opel">Eventos melhor pontuados</option>
@@ -131,7 +131,7 @@
             </div>
             <button id="btnSearch" type="button" class="btn btn-b4">Procurar</button>
           
-            <button id="btnAddEvent" type="button" class="btn btn-b4" data-toggle="modal" data-target="#addTripModal" style="display:none">Adicionar Evento</button>
+            <button id="btnAddEvent" type="button" class="btn btn-b4" data-toggle="modal" data-target="#addEventModal" style="display:none">Adicionar Evento</button>
           </form>
         </div>
         <br>
@@ -165,7 +165,64 @@
     </div>
   </div>
 </div>
-</div>      
+</div>     
+
+
+
+<div class="container">
+    
+    <!-- Login Modal-->
+
+<div class="modal fade" id="addEventModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="eventModal">
+
+      <div class="modal-header">
+        <h4>Adicionar Evento</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+    
+      <div class="modal-body">
+          <form id="addEvent">
+            <p>Nome do Evento:</p>
+            <input type="text" id ="eventName" value="" required>
+            <br></br>
+            <p>Descrição:</p>
+            <input type="text" id="eventDesc" value="" required>
+            <br></br>
+            <p>Data:</p>
+            <input type="date" id="eventDate" value="" required>
+            <br></br>
+            <p>Hora:</p>
+            <input type="time" id="eventTime" value="" required>
+            <br></br>
+            <p>Local:</p>
+            <input type="text" id="eventLocal" value="" required>
+            <br></br>
+            <p>Responsavel:</p>
+            <select id="eventAccountable">
+            </select>
+            <br></br>
+            <p>Categoria/Tag:</p>
+            <input type="text" id="eventCategory" value="" required>
+            <br></br>
+            <p>Imagem:</p>
+            <input type="text" id="eventPic" value="" required>
+            <br><br>
+            <input type="submit" class="btn btn-b4" value="Adicionar">
+          </form> 
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-b4" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

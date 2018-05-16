@@ -232,16 +232,7 @@ function init(){
 
     })
 
-    //Butao de evento ativar caso o admin ou docente venham de outra pagina
-    if (localStorage.getItem("loggedUser")) {
-
-        let currentUser  = JSON.parse(localStorage.loggedUser)
-        
-        if (currentUser.admin == 1 || currentUser.docente == 1){
-            document.getElementById("btnAddEvent").style.display = 'inline'
-        }
-    }
-
+   
     let control = document.title
 
     if (control == "TsiYou"){
@@ -251,6 +242,59 @@ function init(){
 
     if (control == "TsiYou - Eventos"){
         renderEvents()
+
+         //Butao de evento ativar caso o admin ou docente venham de outra pagina
+        if (localStorage.getItem("loggedUser")) {
+
+            let currentUser  = JSON.parse(localStorage.loggedUser)
+        
+            if (currentUser.admin == 1 || currentUser.docente == 1){
+                document.getElementById("btnAddEvent").style.display = 'inline'
+            }
+        }
+
+
+
+        //Teste 
+        let addEvent = document.getElementById("addEvent")
+        let eventName = document.getElementById("eventName")
+        let eventDesc = document.getElementById("eventDesc")
+        let eventDate = document.getElementById("eventDate")
+        let eventTime = document.getElementById("eventTime")
+        let eventLocal = document.getElementById("eventLocal")
+        let eventAccountable = document.getElementById("eventAccountable")
+        let eventCategory = document.getElementById("eventCatergory")
+        let eventPic = document.getElementById("eventPic")
+
+        let docStr = ""
+
+        for(let i = 0; i < Users.length; i++){
+
+            if (Users[i].docente == 1) {
+                eventAccountable.innerHTML = ""
+
+                //<option value="saab">Eventos mais recentes</option>
+                docStr += '<option value="' + Users[i].name + '">' + Users[i].name +'</option>'
+
+                eventAccountable.innerHTML = docStr
+            }
+        }
+
+
+        addEvent.addEventListener("submit", function (event) {
+
+            event.preventDefault()
+    
+            let newEvent = new Event(eventName.value,eventDesc.value,eventDate,eventTime,eventLocal,eventCategory,eventAccountable,eventPic)
+            Events.push(newEvent)
+            console.log(Events)
+            renderEvents()
+    
+        })
+
+       
+
+
     }
 
     
