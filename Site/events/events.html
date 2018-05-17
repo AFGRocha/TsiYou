@@ -129,9 +129,15 @@
                   <option value="audi">Eventos a realizar</option>
               </select>
             </div>
-            <button id="btnSearch" type="button" class="btn btn-b4">Procurar</button>
+           
+            <div class = "col-md-1">
+              <button id="btnSearch" type="button" class="btn btn-b4">Procurar</button>
+            </div>
+
+            <div class = "col-md-1">
+              <button id="btnAddEvent" type="button" class="btn btn-b4" data-toggle="modal" data-target="#addEventModal" style="display:none">Adicionar Evento</button>
+            </div>
           
-            <button id="btnAddEvent" type="button" class="btn btn-b4" data-toggle="modal" data-target="#addEventModal" style="display:none">Adicionar Evento</button>
           </form>
         </div>
         <br>
@@ -187,31 +193,31 @@
       <div class="modal-body">
           <form id="addEvent">
             <p>Nome do Evento:</p>
-            <input type="text" id ="eventName" value="" required>
+            <input type="text" class="form-control" id ="eventName" value="" required>
             <br></br>
             <p>Descrição:</p>
-            <input type="text" id="eventDesc" value="" required>
+            <input type="text" class="form-control" id="eventDesc" value="" required>
             <br></br>
             <p>Data:</p>
-            <input type="date" id="eventDate" value="" required>
+            <input type="date" class="form-control" id="eventDate" value="" required>
             <br></br>
             <p>Hora:</p>
-            <input type="time" id="eventTime" value="" required>
+            <input type="time" class="form-control" id="eventTime" value="" required>
             <br></br>
             <p>Local:</p>
-            <input type="text" id="eventLocal" value="" required>
+            <input type="text" class="form-control" id="eventLocal" value="" required>
             <br></br>
             <p>Responsavel:</p>
-            <select id="eventAccountable">
+            <select class="form-control" id="eventAccountable"> 
             </select>
             <br></br>
             <p>Categoria/Tag:</p>
-            <input type="text" id="eventCategory" value="" required>
+            <input type="text" class="form-control" id="eventCategory" value="" required>
             <br></br>
             <p>Imagem:</p>
-            <input type="text" id="eventPic" value="" required>
+            <input type="text" class="form-control" id="eventPic" value="" required>
             <br><br>
-            <input type="submit" class="btn btn-b4" value="Adicionar">
+            <input type="submit"  class="btn btn-b4" value="Adicionar">
           </form> 
       </div>
 
