@@ -171,7 +171,9 @@ function init(){
                     }
                     
                     if (Users[i].docente == 1 || Users[i].admin == 1){
+                        if (control == "TsiYou - Eventos"){
                         document.getElementById("btnAddEvent").style.display = 'inline'
+                        }
                     }
 
                     $('#loginModal').modal('hide');
@@ -263,7 +265,7 @@ function init(){
         let eventTime = document.getElementById("eventTime")
         let eventLocal = document.getElementById("eventLocal")
         let eventAccountable = document.getElementById("eventAccountable")
-        let eventCategory = document.getElementById("eventCatergory")
+        let eventCategory = document.getElementById("eventCategory")
         let eventPic = document.getElementById("eventPic")
 
         let docStr = ""
@@ -285,10 +287,11 @@ function init(){
 
             event.preventDefault()
     
-            let newEvent = new Event(eventName.value,eventDesc.value,eventDate,eventTime,eventLocal,eventCategory,eventAccountable,eventPic)
-            Events.push(newEvent)
+            let newEvent = new Event(eventName.value,eventDesc.value,eventDate.value,eventTime.value,eventLocal.value,eventCategory.value,eventAccountable.value,eventPic.value)
+            Events.push(newEvent)   
             console.log(Events)
             renderEvents()
+            $('#addEventModal').modal('hide');
     
         })
 
