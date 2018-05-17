@@ -89,11 +89,13 @@ Partners.push(testPartner)
 //Hard code events
 
 let Events = []
-let eventTest = new Event("ESMAPP","Algo","19/04/2018","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-let eventTest2 = new Event("ESMAPP2","Algo","19/04/2018","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest = new Event("ESMAPP","Algo","2018-04-19","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+
 Events.push(eventTest)
 Events.push(eventTest2)
-Events.push(eventTest)
+Events.push(eventTest3)
 Events.push(eventTest)
 Events.push(eventTest)
 Events.push(eventTest)
@@ -257,7 +259,7 @@ function init(){
 
 
 
-        //Teste 
+        //Adicionar eventos
         let addEvent = document.getElementById("addEvent")
         let eventName = document.getElementById("eventName")
         let eventDesc = document.getElementById("eventDesc")
@@ -296,6 +298,77 @@ function init(){
         })
 
        
+        //Filtrar eventos 
+
+        let btnSearch = document.getElementById("btnSearch")
+        let eventFilter = document.getElementById("eventFilter")
+
+        btnSearch.addEventListener("click", function(){
+
+
+            if(eventFilter.value == ""){
+                alert("Selecione um filtro")
+            }
+
+            if(eventFilter.value == "recentes"){
+                Events.reverse()
+                renderEvents()
+            }
+
+            if(eventFilter.value == "realizados"){
+
+                let today = new Date();
+                let d = today.getTime()
+                console.log(d)
+                let tempEventArray = []
+                let backupArray = Events
+                console.log(backupArray)
+
+                for(let i = 0; i < Events.length;i++){
+
+                    let timeTime = Date.parse(Events[i].data)
+                    console.log("Milisegundos do evento: " + timeTime)
+
+                    if(timeTime < d){
+                        tempEventArray.push(Events[i])
+                    }
+
+                }
+
+                Events = tempEventArray
+
+                renderEvents()
+                Events = backupArray
+            }
+
+
+            if(eventFilter.value == "realizar"){
+
+                let today = new Date();
+                let d = today.getTime()
+                console.log(d)
+                let tempEventArray = []
+                let backupArray = Events
+                console.log(backupArray)
+
+                for(let i = 0; i < Events.length;i++){
+
+                    let timeTime = Date.parse(Events[i].data)
+                        console.log("Milisegundos do evento: " + timeTime)
+
+                    if(timeTime > d){
+                        tempEventArray.push(Events[i])
+                    }
+
+                }
+
+                Events = tempEventArray
+
+                renderEvents()
+                Events = backupArray
+            }
+        })
+
 
 
     }
