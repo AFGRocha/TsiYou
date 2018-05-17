@@ -7,15 +7,101 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
      <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-     <!-- TsiYou CSS--> 
-    
-        <link rel="stylesheet" type="text/css" href="../index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     
+    <!-- TsiYou CSS--> 
+        <link rel="stylesheet" type="text/css" href="./index.css">
         <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400,500,700" rel="stylesheet">
         <script src="../main.js"></script> 
+
+    <!--Font awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     </head>
-<body>
-    
+    <body>
+        <!--Navigation Bar-->
+        <div class="topnav">
+        <a href="index.html" ><i class="fas fa-home"></i></a>
+        <a class="active" href="#123" >Painel de Utilizadores</a>
+        <a href="">Painel de Eventos</a>
+        <a href="">Painel de Parcerias</a>
+      </div>
+      <!--User Table -->
+      <div>
+      <table id="tblUser" class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Código</th>
+                  <th>Nome</th>
+                  <th>Username</th>
+                  <th>Password</th>
+                  <th>Tipo</th>
+                  <th>Email</th>
+                  <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0001</td>
+                    <td>Admin</td>
+                    <td>Admin</td>
+                    <td>Admin123</td>
+                    <td>Admin</td>
+                    <td>Admin@tsiw.com</td>
+                    <td> <img src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" height="200'" width="200"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Event Table -->
+        <div>
+        <table id="tblEvent" class="table">
+             <thead class="thead-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Local</th>
+                    <th>Categoria</th>
+                    <th>Responsável</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CSI</td>
+                    <td>Evento XX</td>
+                    <td>18/05/2018</td>
+                    <td>10:00:AM</td>
+                    <td>Auditório</td>
+                    <td>TSIW</td>
+                    <td>Docente X</td>
+                    <td> <img src="https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini" height="300'" width="200"> </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <!--Partner Table -->
+        <div>
+            <table id="tblPartner" class="table">
+                <thead class="thead-dark">
+                     <tr>
+                        <th>Código</th>
+                        <th>Empresa / Instituição</th>
+                        <th>Localização</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>E0001</td>
+                        <td>Empresa X</td>
+                        <td>Mapa : XX</td>
+                        <td>www.google.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 </body>
 </html>
