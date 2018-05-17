@@ -292,7 +292,7 @@ function init(){
             console.log(Events)
             renderEvents()
             $('#addEventModal').modal('hide');
-    
+            addEvent.reset()
         })
 
        
