@@ -78,6 +78,9 @@ Users.push(docenteTest)
 Users.push(docenteTest)
 Users.push(docenteTest)
 
+//Tags
+
+let allTags = ["Seminario","teste"]
 
 //Hard code parcerias 
 let testPartner = new Partner("Nonius Software","Moreira da Maia","https://www.noniussoftware.com/en/","https://www.noniussoftware.com/wp-content/uploads/2015/04/Logo_Nonius.png")
@@ -89,9 +92,9 @@ Partners.push(testPartner)
 //Hard code events
 
 let Events = []
-let eventTest = new Event("ESMAPP","Algo","2018-04-19","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest = new Event("ESMAPP","Algo","2018-04-19","Teste","ESMAD - Sala B201","-Seminario","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 
 Events.push(eventTest)
 Events.push(eventTest2)
@@ -297,7 +300,8 @@ function init(){
             addEvent.reset()
         })
 
-       
+        //Render Tags 
+         renderTags()
         //Filtrar eventos 
 
         let btnSearch = document.getElementById("btnSearch")
@@ -306,15 +310,18 @@ function init(){
         btnSearch.addEventListener("click", function(){
 
 
-            if(eventFilter.value == ""){
-                alert("Selecione um filtro")
+            //Filtro todos
+            if(eventFilter.value == "todos"){
+                renderEvents()
             }
 
+            //Filtro recentes
             if(eventFilter.value == "recentes"){
                 Events.reverse()
                 renderEvents()
             }
 
+            //Filtro realizados
             if(eventFilter.value == "realizados"){
 
                 let today = new Date();
@@ -341,7 +348,7 @@ function init(){
                 Events = backupArray
             }
 
-
+            //Filtro a realizar
             if(eventFilter.value == "realizar"){
 
                 let today = new Date();
@@ -358,6 +365,35 @@ function init(){
 
                     if(timeTime > d){
                         tempEventArray.push(Events[i])
+                    }
+
+                }
+
+                Events = tempEventArray
+
+                renderEvents()
+                Events = backupArray
+            }
+
+            //Filtrar por tag
+
+            if(eventFilter.value == "tagID"){
+                
+               let selectedTag =  eventFilter.selectedIndex
+               let thisTag = eventFilter.options[selectedTag].text;
+               console.log(eventFilter.selectedIndex)
+               console.log(thisTag)
+
+                let tempEventArray = []
+                let backupArray = Events
+
+                for(let i = 0; i < Events.length;i++){
+
+                    
+
+                    if(Events[i].category ==  thisTag){
+                        tempEventArray.push(Events[i])
+                        console.log("Entrou no if")
                     }
 
                 }
@@ -567,4 +603,20 @@ function renderEvents(){
 
           }) 
       }
+}
+
+//Lista de tags, adiciona as tags ao select com todos os filtros
+
+function renderTags(){
+    let eventFilter = document.getElementById("eventFilter")
+    let str = ""
+    str = eventFilter.innerHTML
+
+    for(let i = 0; i < allTags.length;i++){
+        
+        str += '<option class="teste" value="tagID">-' + allTags[i] + '</option>'
+        
+    }
+
+    eventFilter.innerHTML = str
 }
