@@ -15,6 +15,40 @@ window.onload = function() {
     }
   
 
+
+    //User local storage
+    if (localStorage.getItem("allUsers")) {
+
+    let getUsers = JSON.parse(localStorage.allUsers)
+    Users = getUsers
+    }
+
+    else{
+        localStorage.allUsers = JSON.stringify(Users)
+    }
+
+    //Partners local storage
+    if (localStorage.getItem("allPartners")) {
+
+        let getPartners = JSON.parse(localStorage.allPartners)
+        Partners = getPartners
+    }
+
+    else{
+            localStorage.allPartners = JSON.stringify(Partners)
+    }
+
+      //Event local storage
+      if (localStorage.getItem("allEvents")) {
+
+        let getEvents = JSON.parse(localStorage.allEvents)
+        Events = getEvents
+        }
+    
+        else{
+            localStorage.allEvents = JSON.stringify(Events)
+        }
+        
  
 }
 //Users
@@ -77,6 +111,8 @@ Users.push(Admin1)
 Users.push(docenteTest)
 Users.push(docenteTest)
 Users.push(docenteTest)
+
+
 
 //Tags
 
@@ -217,12 +253,16 @@ function init(){
             let myUser = new User(usernameSign.value,passwordSign.value,email.value)
             Users.push(myUser)
             console.log(myUser)
+            let localUsers = localStorage.getItem("allUsers")
+            let myUserArray  = JSON.parse(localUsers)
+            myUserArray.push(myUser)
+            localStorage.allUsers = JSON.stringify(myUserArray)
             $('#signupModal').modal('hide');
         }
         else{
             signChecker.innerHTML = "Passwords não estao iguais"
         }
-
+        
 
     })
 
