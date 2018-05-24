@@ -2,6 +2,8 @@ window.onload = function() {
 
     let control = document.title
     console.log("Loaded: " + control)
+    storage()
+    account()
     init()
 
     if (control == "TsiYou"){
@@ -16,7 +18,7 @@ window.onload = function() {
   
 
 
-    //User local storage
+  /*  //User local storage
     if (localStorage.getItem("allUsers")) {
 
     let getUsers = JSON.parse(localStorage.allUsers)
@@ -47,13 +49,13 @@ window.onload = function() {
     
         else{
             localStorage.allEvents = JSON.stringify(Events)
-        }
+        } */
         
  
 }
 //Users
 
-class User{
+/*class User{
     constructor(username,password,email){
         this.username = username
         this.password = password
@@ -141,11 +143,12 @@ Events.push(eventTest)
 Events.push(eventTest)
 Events.push(eventTest)
 
-
+*/
 //
 
 function init(){
 
+    /*
     //Login
     let usernameLogin = document.getElementById("username")
     let passwordLogin = document.getElementById("password")
@@ -279,7 +282,7 @@ function init(){
 
     })
 
-   
+    */
     let control = document.title
 
     if (control == "TsiYou"){
@@ -287,7 +290,7 @@ function init(){
         renderPartners()
     }
 
-    if (control == "TsiYou - Eventos"){
+   /* if (control == "TsiYou - Eventos"){
         renderEvents()
 
          //Butao de evento ativar caso o admin ou docente venham de outra pagina
@@ -460,7 +463,7 @@ function init(){
 
 
 
-    }
+    }*/
 
     
 }
@@ -595,7 +598,7 @@ function renderPartners(){
 
 //Lista de eventos
 
-function renderEvents(){
+/*function renderEvents(){
     let divEvents = document.getElementById("Events")
 
     let str = ""
@@ -656,11 +659,11 @@ function renderEvents(){
 
           }) 
       }
-}
+}*/
 
 //Lista de tags, adiciona as tags ao select com todos os filtros
 
-function renderTags(){
+/*function renderTags(){
     let eventFilter = document.getElementById("eventFilter")
     let str = ""
     str = eventFilter.innerHTML
@@ -672,4 +675,4 @@ function renderTags(){
     }
 
     eventFilter.innerHTML = str
-}
+}*/
