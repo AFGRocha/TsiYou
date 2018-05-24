@@ -292,10 +292,23 @@ function init(){
 
             event.preventDefault()
     
-            let newEvent = new Event(eventName.value,eventDesc.value,eventDate.value,eventTime.value,eventLocal.value,eventCategory.value,eventAccountable.value,eventPic.value)
+            let newEvent = new Event(eventName.value,eventDesc.value,eventDate.value,eventTime.value,eventLocal.value,"-" + eventCategory.value,eventAccountable.value,eventPic.value)
             Events.push(newEvent)   
             console.log(Events)
             renderEvents()
+            console.log(allTags.indexOf(eventCategory.value))
+
+            if(allTags.indexOf(eventCategory.value) ==-1){
+                console.log("New tag added: "+ eventCategory.value)
+                let tagBackup = allTags
+                allTags = []
+                tagBackup.push(eventCategory.value)
+                allTags.push(eventCategory.value)
+                renderTags()
+                allTags = tagBackup
+                console.log("Tags fixed: " + allTags)
+            }
+
             $('#addEventModal').modal('hide');
             addEvent.reset()
         })
