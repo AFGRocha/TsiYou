@@ -220,11 +220,11 @@ function renderEvents(){
             
             str += '<div class="col-sm-12 col-md-4 col-lg-4">'
             str += '<div class="card" style="width: 18rem;">'
-            str += '<img class="card-img-top" src="' + Events[i].image + '" alt="Card image cap">'
+            str += '<img class="card-img-top" src="' + Events[i]._image + '" alt="Card image cap">'
             str += '<div class="card-body">'
-            str += '<h5 class="card-title text-dark">' + Events[i].name + '</h5>'  
-            str += '<p class="card-title text-dark">' + Events[i].data + '</p>' 
-            str += '<p class="card-title text-dark">' + Events[i].local + '</p>'  
+            str += '<h5 class="card-title text-dark">' + Events[i]._name + '</h5>'  
+            str += '<p class="card-title text-dark">' + Events[i]._data + '</p>' 
+            str += '<p class="card-title text-dark">' + Events[i]._local + '</p>'  
             str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="btn openEvent" value="Ver mais" id="'+ eventCounter + '"></center>' 
             str += '</div></div></div>'
 

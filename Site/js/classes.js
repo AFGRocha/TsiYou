@@ -11,6 +11,33 @@ class User{
         this.name = ""
         this.recomendations = []
     }
+
+     // Property username
+     get username() {
+        return this._username
+    }
+
+    set username(newUsername) {
+        this._username = newUsername        
+    }
+
+    // Property password
+    get password() {
+        return this._password
+    }
+    
+    set password(newPassword) {
+        this._password = newPassword      
+    }
+
+    // Property email
+    get email() {
+        return this._email
+    }
+    
+    set email(newEmail) {
+        this._email = newEmail     
+    }
 }
 
 //Parcerias 
@@ -22,6 +49,44 @@ class Partner{
         this.link = link
         this.image = image
     }
+    
+    // Property company
+     get company() {
+        return this._company
+    }
+    
+    set company(newCompany) {
+        this._company = newCompany        
+    }
+
+    // Property Local
+    get local() {
+        return this._local
+    }
+    
+    set local(newLocal) {
+        this._local = newLocal        
+    }
+
+    // Property Link
+    get link() {
+        return this._link
+    }
+        
+    set link(newLink) {
+        this._link = newLink        
+    }
+
+
+    // Property Image
+    get image() {
+        return this._image
+    }
+        
+    set image(newImage) {
+        this._image = newImage        
+    }
+    
 }
 
 //Eventos
@@ -39,6 +104,81 @@ class Event{
 
     }
 
+    // Property name
+    get name() {
+        return this._name
+    }
+            
+    set name(newName) {
+        this._name = newName            
+    }
+
+    // Property desc
+    get desc() {
+        return this._desc
+    }
+                
+    set desc(newDesc) {
+        this._desc = newDesc            
+    }
+
+    // Property Data
+    get data() {
+        return this._data
+    }
+                
+    set data(newData) {
+        this._data = newData            
+    }
+
+    // Property Hour
+    get hour() {
+        return this._hour
+    }
+                
+    set hour(newHour) {
+        this._hour = newHour            
+    }
+
+    // Property local
+    get local() {
+        return this._local
+    }
+                
+    set local(newLocal) {
+        this._local = newLocal            
+    }
+
+    // Property category
+    get category() {
+        return this._category
+    }
+                
+    set category(newCategory) {
+        this._category = newCategory            
+    }
+
+    // Property accountable
+    get accountable() {
+        return this._accountable
+    }
+                
+    set accountable(newAccountable) {
+        this._accountable = newAccountable            
+    }
+    
+    
+    
+    // Property image
+    get image() {
+        return this._image
+    }
+                
+    set image(newImage) {
+        this._image = newImage          
+    } 
+    
+    
 }
 
 
@@ -138,8 +278,8 @@ function account(){
  
          let pastUser  = JSON.parse(localStorage.loggedUser)
          console.log("User Logged in")
-         console.log("Username: " + pastUser.username)
-         console.log("Password: " + pastUser.password)
+         console.log("Username: " + pastUser._username)
+         console.log("Password: " + pastUser._password)
          //console.log(Users[i])
          
  
@@ -148,13 +288,13 @@ function account(){
          document.getElementById('signText').style.display = 'none';
          if (pastUser.admin == 1){
              document.getElementById('userText').style.display = 'inline'
-             document.getElementById('userText').innerHTML = pastUser.username + " " + '<i class="fa fa-user" style="font-size:24px;color:red"></i>';
+             document.getElementById('userText').innerHTML = pastUser._username + " " + '<i class="fa fa-user" style="font-size:24px;color:red"></i>';
              document.getElementById('logout').style.display = 'inline'
          }
  
          else{
              document.getElementById('userText').style.display = 'inline'
-             document.getElementById('userText').innerHTML = pastUser.username + " " + '<i class="fa fa-user" style="font-size:24px"></i>';
+             document.getElementById('userText').innerHTML = pastUser._username + " " + '<i class="fa fa-user" style="font-size:24px"></i>';
              document.getElementById('logout').style.display = 'inline'
          }
      }
@@ -165,9 +305,9 @@ function account(){
  
          for(let i = 0; i < Users.length; i++){
  
-             if (usernameLogin.value == Users[i].username){
+             if (usernameLogin.value == Users[i]._username){
  
-                 if (passwordLogin.value == Users[i].password){
+                 if (passwordLogin.value == Users[i]._password){
  
                      //Local Storage test 
                      localStorage.loggedUser = JSON.stringify(Users[i])
