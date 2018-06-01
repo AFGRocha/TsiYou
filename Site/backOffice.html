@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="./index.css">
         <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400,500,700" rel="stylesheet">
         <script src="../main.js"></script> 
+        <script src="./backOffice.js"></script>
 
     <!--Font awesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
@@ -22,9 +23,9 @@
         <!--Navigation Bar-->
         <div class="topnav">
         <a href="index.html" ><i class="fas fa-home"></i></a>
-        <a class="active" href="#123" >Painel de Utilizadores</a>
-        <a href="">Painel de Eventos</a>
-        <a href="">Painel de Parcerias</a>
+        <a href="#Users" id="Users" >Painel de Utilizadores</a>
+        <a href="#Events" id="Events">Painel de Eventos</a>
+        <a href="#Partners" id="Partners">Painel de Parcerias</a>
       </div>
       <!--User Table -->
       <div class="table-responsive">
@@ -55,7 +56,7 @@
         </div>
         <!--Event Table -->
         <div class="table-responsive">
-        <table id="tblEvent" class="table">
+        <table id="tblEvent" class="table" style="display:none">
              <thead class="thead-dark">
                 <tr>
                     <th>Nome</th>
@@ -77,14 +78,14 @@
                     <td>Auditório</td>
                     <td>TSIW</td>
                     <td>Docente X</td>
-                    <td> <img src="https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini" height="300'" width="200"> </td>
+                    <td> <img src="https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini" height="300'" width="250"> </td>
                 </tr>
             </tbody>
         </table>
         </div>
         <!--Partner Table -->
         <div class="table-responsive">
-            <table id="tblPartner" class="table">
+            <table id="tblPartner" class="table" style="display:none">
                 <thead class="thead-dark">
                      <tr>
                         <th>Código</th>
