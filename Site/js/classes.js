@@ -213,7 +213,7 @@ Partners.push(testPartner)
 //Hard code events
 
 let Events = []
-let eventTest = new Event("ESMAPP","Algo","2018-04-19","Teste","ESMAD - Sala B201","-Seminario","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+let eventTest = new Event("ESMAPP","O ESMAPP é um evento onde se pretende demonstrar as aplicaçoes desenvolvidas pelos alunos de 3º ano de TSIW","2018-04-19","Teste","ESMAD - Sala B201","-Seminario","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 

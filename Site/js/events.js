@@ -116,7 +116,7 @@ function eventPage(){
 
             for(let i = 0; i < Events.length;i++){
 
-                let timeTime = Date.parse(Events[i].data)
+                let timeTime = Date.parse(Events[i]._data)
                 console.log("Milisegundos do evento: " + timeTime)
 
                 if(timeTime < d){
@@ -143,7 +143,7 @@ function eventPage(){
 
             for(let i = 0; i < Events.length;i++){
 
-                let timeTime = Date.parse(Events[i].data)
+                let timeTime = Date.parse(Events[i]._data)
                     console.log("Milisegundos do evento: " + timeTime)
 
                 if(timeTime > d){
@@ -174,7 +174,7 @@ function eventPage(){
 
                 
 
-                if(Events[i].category ==  thisTag){
+                if(Events[i]._category ==  thisTag){
                     tempEventArray.push(Events[i])
                     console.log("Entrou no if")
                 }
@@ -243,16 +243,38 @@ function renderEvents(){
     }
 
 
-      //Cria o butao remover que remove o respetivo filme de acordo o seu ID
+      //Abrir modal do Evento
       let btnOpen = document.getElementsByClassName("openEvent")
+      /* 
+     <div class="modal-body">
+        <p id ="openEventImage"></p>
+        <p id="openEventDesc"></p>
+        <p id="openEventData"></p>
+        <p id="openEventLocal"></p>
+        <p id="openEventCategory"></p>
+        <p id="openEventAccountable"></p>
+      </div>
+      */
 
 
       for(let i = 0; i < btnOpen.length; i++){
           btnOpen[i].addEventListener("click", function(){
 
-            let eventTitle = document.getElementById("eventTitle")
+            let openEventTitle = document.getElementById("openEventTitle")
+            let openEventImage = document.getElementById("openEventImage")
+            let openEventDesc = document.getElementById("openEventDesc")
+            let openEventData = document.getElementById("openEventData")
+            let openEventLocal = document.getElementById("openEventLocal")
+            let openEventCategory = document.getElementById("openEventCategory")
+            let openEventAccountable = document.getElementById("openEventAccountable")
 
-            eventTitle.innerHTML = Events[i].name
+            openEventTitle.innerHTML = Events[i]._name
+            openEventImage.src = Events[i]._image
+            openEventDesc.innerHTML = "Descrição: " + Events[i]._desc
+            openEventData.innerHTML = "Data e hora: " + Events[i]._data + " " + Events[i]._hour
+            openEventLocal.innerHTML = "Local: " + Events[i]._local
+            openEventCategory.innerHTML ="Categoria:  " + Events[i]._category
+            openEventAccountable.innerHTML ="Responsável: " + Events[i]._accountable
 
         
 
