@@ -72,6 +72,10 @@ function eventPage(){
             renderTags()
             allTags = tagBackup
             console.log("Tags fixed: " + allTags)
+            let localTags = localStorage.getItem("savedTags")
+            let myTagsArray = JSON.parse(localTags)
+            myTagsArray.push(eventCategory.value)
+            localStorage.savedTags = JSON.stringify(myTagsArray)
         }
 
         let localEvents = localStorage.getItem("allEvents")

@@ -261,6 +261,19 @@ function storage(){
             else{
                 localStorage.allEvents = JSON.stringify(Events)
             }
+
+
+      //Tags local storage     
+      
+      if(localStorage.getItem("savedTags")){
+
+        let getTags = JSON.parse(localStorage.savedTags)
+        allTags = getTags
+      }
+
+      else{
+          localStorage.savedTags = JSON.stringify(allTags)
+      }
 }
 
 
