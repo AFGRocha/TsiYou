@@ -186,16 +186,22 @@ class Event{
 let Users = []
 let Admin1 = new User("Admin","admin123","admin@admin.com")
 Admin1.admin = 1
-let docenteTest = new User("Mariozinho","mario123","mario@mario.com")
-docenteTest.docente = 1
-docenteTest.name = "Mário Pinto"
-docenteTest.image = "https://www.eseig.ipp.pt/kmilt/images/mariopinto.jpg"
+let docenteMario = new User("Mariozinho","mario123","mario@mario.com")
+docenteMario.docente = 1
+docenteMario.name = "Mário Pinto"
+docenteMario.image = "https://www.eseig.ipp.pt/kmilt/images/mariopinto.jpg"
 
+let docenteRicardo = new User("rquerios","ric123","queiros@queiros.com")
+docenteRicardo.docente = 1
+docenteRicardo.name = "Ricardo Queirós"
+docenteRicardo.image = "https://www.eseig.ipp.pt/kmilt/images/rq.jpg"
 
 Users.push(Admin1)
-Users.push(docenteTest)
-Users.push(docenteTest)
-Users.push(docenteTest)
+Users.push(docenteMario)
+Users.push(docenteRicardo)
+Users.push(docenteMario)
+
+
 
 
 
