@@ -215,6 +215,8 @@ let Partners = []
 Partners.push(testPartner)
 Partners.push(testPartner)
 Partners.push(testPartner)
+Partners.push(testPartner)
+
 
 //Hard code events
 
