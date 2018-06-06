@@ -2,6 +2,7 @@
 
 class User{
     constructor(username,password,email){
+        this._id = User.getLastId() + 1
         this.username = username
         this.password = password
         this.email = email
@@ -11,6 +12,14 @@ class User{
         this.name = ""
         this.recomendations = []
     }
+
+
+
+        // Property Id
+        get id() {
+            return this._id
+        }
+
 
      // Property username
      get username() {
@@ -38,16 +47,32 @@ class User{
     set email(newEmail) {
         this._email = newEmail     
     }
+
+
+      // Get the last ID
+      static getLastId() {
+        let lastId = 0
+        if (Users.length > 0) {
+            lastId = Users[Users.length-1].id
+        }        
+        return lastId
+    }
 }
 
 //Parcerias 
 
 class Partner{
     constructor(company,local,link,image){
+        this._id = Partner.getLastId() + 1
         this.company = company
         this.local = local
         this.link = link
         this.image = image
+    }
+
+     // Property Id
+     get id() {
+        return this._id
     }
     
     // Property company
@@ -87,12 +112,20 @@ class Partner{
         this._image = newImage        
     }
     
+      // Get the last ID
+      static getLastId() {
+        let lastId = 0
+        if (Partners.length > 0) {
+            lastId = Partners[Partners.length-1].id
+        }        
+        return lastId
+    }
 }
 
 //Eventos
 class Event{
     constructor(name,desc,data,hour,local,category,accountable,image){
-       // this.id =
+        this._id = Event.getLastId() + 1
        this.name = name
        this.desc = desc
        this.data = data
@@ -103,6 +136,13 @@ class Event{
        this.image = image
 
     }
+
+
+     // Property Id
+     get id() {
+        return this._id
+    }
+    
 
     // Property name
     get name() {
@@ -178,7 +218,14 @@ class Event{
         this._image = newImage          
     } 
     
-    
+       // Get the last ID
+       static getLastId() {
+        let lastId = 0
+        if (Events.length > 0) {
+            lastId = Events[Events.length-1].id
+        }        
+        return lastId
+    }
 }
 
 
@@ -186,19 +233,21 @@ class Event{
 let Users = []
 let Admin1 = new User("Admin","admin123","admin@admin.com")
 Admin1.admin = 1
+Users.push(Admin1)
 let docenteMario = new User("Mariozinho","mario123","mario@mario.com")
 docenteMario.docente = 1
 docenteMario.name = "Mário Pinto"
 docenteMario.image = "https://www.eseig.ipp.pt/kmilt/images/mariopinto.jpg"
+Users.push(docenteMario)
 
 let docenteRicardo = new User("rquerios","ric123","queiros@queiros.com")
 docenteRicardo.docente = 1
 docenteRicardo.name = "Ricardo Queirós"
 docenteRicardo.image = "https://www.eseig.ipp.pt/kmilt/images/rq.jpg"
-
-Users.push(Admin1)
-Users.push(docenteMario)
 Users.push(docenteRicardo)
+
+
+
 Users.push(docenteMario)
 
 
@@ -210,8 +259,9 @@ Users.push(docenteMario)
 let allTags = ["Seminario","teste"]
 
 //Hard code parcerias 
-let testPartner = new Partner("Nonius Software","Moreira da Maia","https://www.noniussoftware.com/en/","https://www.noniussoftware.com/wp-content/uploads/2015/04/Logo_Nonius.png")
 let Partners = []
+let testPartner = new Partner("Nonius Software","Moreira da Maia","https://www.noniussoftware.com/en/","https://www.noniussoftware.com/wp-content/uploads/2015/04/Logo_Nonius.png")
+
 Partners.push(testPartner)
 Partners.push(testPartner)
 Partners.push(testPartner)
@@ -222,12 +272,12 @@ Partners.push(testPartner)
 
 let Events = []
 let eventTest = new Event("ESMAPP","O ESMAPP é um evento onde se pretende demonstrar as aplicaçoes desenvolvidas pelos alunos de 3º ano de TSIW","2018-04-19","Teste","ESMAD - Sala B201","-Seminario","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-
 Events.push(eventTest)
+let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 Events.push(eventTest2)
+let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 Events.push(eventTest3)
+
 Events.push(eventTest)
 Events.push(eventTest)
 Events.push(eventTest)
@@ -292,9 +342,10 @@ function account(){
      let passwordLogin = document.getElementById("password")
      let loginBtn = document.getElementById("login")
      let logChecker = document.getElementById("logCheck")
+     let backOffice = document.getElementById("backOffice")
      
    
-     //Local Storage test
+     //Local Storage
      if (localStorage.getItem("loggedUser")) {
  
          let pastUser  = JSON.parse(localStorage.loggedUser)
@@ -311,6 +362,7 @@ function account(){
              document.getElementById('userText').style.display = 'inline'
              document.getElementById('userText').innerHTML = pastUser._username + " " + '<i class="fa fa-user" style="font-size:24px;color:red"></i>';
              document.getElementById('logout').style.display = 'inline'
+             document.getElementById('backOffice').style.display = 'inline'
          }
  
          else{
@@ -330,7 +382,7 @@ function account(){
  
                  if (passwordLogin.value == Users[i]._password){
  
-                     //Local Storage test 
+                     //Local Storage 
                      localStorage.loggedUser = JSON.stringify(Users[i])
  
                      console.log("User Logged in")
@@ -342,8 +394,9 @@ function account(){
                      document.getElementById('signText').style.display = 'none';
                      if (Users[i].admin == 1){
                          document.getElementById('userText').style.display = 'inline'
-                         document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px;color:red"></i>';
+                         document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px;color:red">';
                          document.getElementById('logout').style.display = 'inline'
+                         document.getElementById('backOffice').style.display = 'inline'
                      }
  
                      else{
@@ -418,6 +471,7 @@ function account(){
          document.getElementById('userText').style.display = 'none'
          document.getElementById('logout').style.display = 'none'
          localStorage.removeItem("loggedUser")
+         document.getElementById('backOffice').style.display = 'none'
  
  
      })
