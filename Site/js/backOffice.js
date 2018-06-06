@@ -61,7 +61,7 @@ function tabela(){
 
        //string com o que vai conter a tabela
        let str = ""
-       str = "<thead class='thead-dark'><tr><th>Código</th><th>Nome</th><th>Username</th><th>Password</th><th>Tipo</th><th>Email</th><th>Foto</th><th>Ações</th></tr></thead><tbody>"
+       str = "<thead class='thead-dark'><tr><th>Código</th><th>Nome</th><th>Username</th><th>Password</th><th>Docente</th><th>Admin</th><th>Email</th><th>Foto</th><th>Ações</th></tr></thead><tbody>"
 
        //Atualiza a tabela com o conteudo do array Users
        for (let i = 0; i < Users.length;i++){
@@ -70,16 +70,41 @@ function tabela(){
            str += "<td>" + Users[i].name + "</td>"
            str += "<td>" + Users[i]._username + "</td>"
            str += "<td>" + Users[i]._password + "</td>"
-           str += "<td>" + Users[i]._id + "</td>"
+           
+           if(Users[i].docente == 1){
+            str += "<td>True</td>"
+           }
+           else{
+            str += "<td>False</td>"
+           }
+
+           if(Users[i].admin == 1){
+            str += "<td>True</td>"
+           }
+           else{
+            str += "<td>False</td>"
+           }
+           
            str += "<td>" + Users[i]._email + "</td>"
            str += "<td><img src='" + Users[i].image + "'></td>"
-           if (Users[i].docente == 1){
+
+           if (Users[i].docente == 1 && Users[i].admin == 1 ) {
+            str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Retirar Admin' id='"+ counter + "'></td>"
+           }
+
+           else if (Users[i].docente == 1 && Users[i].admin == 0 ) {
             str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Tornar Admin' id='"+ counter + "'></td>"
+           }
+
+           else if (Users[i].docente == 0 && Users[i].admin == 1 ) {
+            str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Retirar Admin' id='"+ counter + "'></td>"
            }
 
            else{
             str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Tornar Admin' id='"+ counter + "'></td>"  
            }
+
+
            
            str +="</tr>"
            counter++
@@ -107,5 +132,72 @@ function tabela(){
            }) 
        }
        
+       let addDoc = document.getElementsByClassName("addDoc")
+
+       for(let i = 0; i < addDoc.length;i++){
+           addDoc[i].addEventListener("click",function(){
+
+            console.log(addDoc[i].id)
+            
+   
+            let userNum = parseInt(addDoc[i].id)
+
+
+            console.log(Users[userNum])
+
+            if(Users[userNum].docente == 1){
+                Users[userNum].docente = 0
+                
+                alert(Users[userNum]._username + " não é docente")
+            }
+
+            else if(Users[userNum].docente == 0){
+                Users[userNum].docente = 1
+                
+                alert(Users[userNum]._username + " é docente")
+            }
+
+            
+
+            localStorage.allUsers = JSON.stringify(Users)
+
+            tabela()
+
+           })
+       }
+
+
+
+       let addMin = document.getElementsByClassName("addMin")
+
+       for(let i = 0; i < addDoc.length;i++){
+           addMin[i].addEventListener("click",function(){
+
+            console.log(addMin[i].id)
+            
+   
+            let userNum = parseInt(addMin[i].id)
+
+
+            console.log(Users[userNum])
+
+            if(Users[userNum].admin == 1){
+                Users[userNum].admin = 0
+                alert(Users[userNum]._username + " não é admin")
+            }
+
+            else if(Users[userNum].admin == 0){
+                Users[userNum].admin = 1
+                alert(Users[userNum]._username + " é admin")
+            }
+
+            
+
+            localStorage.allUsers = JSON.stringify(Users)
+
+            tabela()
+
+           })
+       }
 
 }
