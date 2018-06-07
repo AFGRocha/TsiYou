@@ -11,14 +11,14 @@ function renderTables() {
     let eventTbl = document.getElementById("Events")
     let partnerTbl = document.getElementById("Partners")
     let tblUser = document.getElementById("tblMain")
-    let tblEvent = document.getElementById("tblEvent")
-    let tblPartner = document.getElementById("tblPartner")
+    let btnAddPartner = document.getElementById("btnAddPartner")
 
     
 
     userTbl.addEventListener("click", function(event) { 
 
         event.preventDefault()
+        btnAddPartner.style.display = 'none'
             tableUsers()
             
     })
@@ -26,19 +26,14 @@ function renderTables() {
     eventTbl.addEventListener("click", function(event) { 
 
         event.preventDefault()
+        btnAddPartner.style.display = 'none'
         tableEvents()
     })
 
     partnerTbl.addEventListener("click", function(event) { 
 
         event.preventDefault()
-        /*
-        if(tblPartner.style.display === "none"){
-            tblEvent.style.display = "none"
-            tblUser.style.display = "none"
-            tblPartner.style.display = "block"
-        }*/
-
+        btnAddPartner.style.display = 'inline'
         tablePartners()
     })
 }
@@ -309,4 +304,28 @@ function tablePartners(){
 
         }) 
     }
+
+
+
+    //Adicionar parcerias 
+    let addPartner = document.getElementById("addPartner")
+    let partnerName = document.getElementById("partnerName")
+    let partnerLocal = document.getElementById("partnerLocal")
+    let partnerLink = document.getElementById("partnerLink")
+    let partnerPic = document.getElementById("partnerPic")
+
+    addPartner.addEventListener("submit", function (event) {
+
+        event.preventDefault()
+
+        let newPartner = new Partner(partnerName.value,partnerLocal.value,partnerLink.value,partnerPic.value)
+        Partners.push(newPartner)   
+        tablePartners()
+        console.log(newPartner._id)
+        console.log("chupp tbh")
+        localStorage.allPartners = JSON.stringify(Partners)
+
+        $('#addPartnerModal').modal('hide');
+        addPartner.reset()
+    })
 }

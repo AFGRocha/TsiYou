@@ -26,7 +26,8 @@
         <a href="#Users" id="Users" >Painel de Utilizadores</a>
         <a href="#Events" id="Events">Painel de Eventos</a>
         <a href="#Partners" id="Partners">Painel de Parcerias</a>
-        <a href="#" id="" class="btn btn-b4" type="button" style="float:right">Adicionar Parceria</a>
+        <a href="#" id="btnAddPartner" class="btn btn-b4" type="button" style="float:right; display:none" data-toggle="modal" data-target="#addPartnerModal">Adicionar Parceria</a>
+       
         
       </div>
       <!--Table -->
@@ -58,5 +59,43 @@
         </div>
 
 
+        <div class="container">
+    
+            <!-- Event adding modal-->
+        
+        <div class="modal fade" id="addPartnerModal" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content" id="partnerModal">
+        
+              <div class="modal-header">
+                <h4>Adicionar Parceiro</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+            
+              <div class="modal-body">
+                  <form id="addPartner">
+                    <p>Nome da Empresa / Instituição:</p>
+                    <input type="text" class="form-control" id ="partnerName" value="" required>
+                    <br></br>
+                    <p>Localização:</p>
+                    <input type="text" class="form-control" id="partnerLocal" value="" required>
+                    <br></br>
+                    <p>Link:</p>
+                    <input type="text" class="form-control" id="partnerLink" value="" required>
+                    <br></br>
+                    <p>Imagem:</p>
+                    <input type="text" class="form-control" id="partnerPic" value="" required>
+                    <br><br>
+                    <input type="submit"  class="btn btn-b4" value="Adicionar">
+                  </form> 
+              </div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
