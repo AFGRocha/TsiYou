@@ -531,9 +531,9 @@ function renderDocentes(){
                 
                 str += '<div class="col-sm-12 col-md-6 col-lg-6">'
                 str += '<div class="card" style="width: 18rem;">'
-                str += '<img class="card-img-top" src="' + Users[i]._image + '" alt="Card image cap">'
+                str += '<img class="card-img-top" src="' + Users[i].image + '" alt="Card image cap">'
                 str += '<div class="card-body">'
-                str += '<h5 class="card-title text-dark">' + Users[i]._name + '</h5>'   
+                str += '<h5 class="card-title text-dark">' + Users[i].name + '</h5>'   
                 str += '</div></div></div>'
                 
                
