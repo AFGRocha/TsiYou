@@ -3,6 +3,7 @@ window.onload = function() {
     storage()
     account()
     renderUser()
+    editUser()
 }
 
 
@@ -32,4 +33,66 @@ function renderUser(){
         profileEmail.innerHTML = currentUser._email
         
     }
+}
+
+function editUser(){
+    let editName = document.getElementById("editName")
+    let editUsername = document.getElementById("editUsername")
+    let editPassword = document.getElementById("editPassword")
+    let editEmail = document.getElementById("editEmail")
+    let editPhoto = document.getElementById("editPhoto")
+    let showPass = document.getElementById("showPass")
+    let editProfile = document.getElementById("editProfile")
+
+
+    if (localStorage.getItem("loggedUser")) {
+        let currentUser  = JSON.parse(localStorage.loggedUser)
+
+        editName.value = currentUser.name
+        editUsername.value = currentUser._username
+        editPassword.value = currentUser._password
+        editEmail.value = currentUser._email
+        editPhoto.value = currentUser.image
+        
+    }
+
+    showPass.addEventListener("click", function(){
+         
+        editPassword.type = "text"
+
+    })
+    
+    editProfile.addEventListener("submit", function(){
+
+        if (localStorage.getItem("loggedUser")) {
+            let currentUser  = JSON.parse(localStorage.loggedUser)
+            let x = 0
+            
+            currentUser.name = editName.value  
+            currentUser._username = editUsername.value 
+            currentUser._password = editPassword.value 
+            currentUser._email = editEmail.value 
+            currentUser.image = editPhoto.value 
+
+            localStorage.loggedUser = JSON.stringify(currentUser)
+
+           for(let i = 0; i < Users.length;i++){
+
+
+                if(Users[i]._username == currentUser._username ){
+                    x = i
+
+                    Users[i] = currentUser
+                    localStorage.allUsers = JSON.stringify(Users)
+                }
+
+            }
+
+            
+            alert("Alterações guardadas ")
+            
+        }
+        
+
+    }) 
 }

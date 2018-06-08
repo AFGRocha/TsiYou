@@ -321,7 +321,7 @@ function tablePartners(){
         let newPartner = new Partner(partnerName.value,partnerLocal.value,partnerLink.value,partnerPic.value)
         Partners.push(newPartner)   
         tablePartners()
-        console.log(newPartner._id)
+        console.log()
         console.log("chupp tbh")
         localStorage.allPartners = JSON.stringify(Partners)
 

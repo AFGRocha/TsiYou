@@ -134,13 +134,57 @@
                   <p class="card-text text-dark" id="profileEmail">querios@queiros</p>
                   <h5 class="text-dark">Os meus eventos:</h5>
                   <p class="card-text text-dark" id="profileMyEvents">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="header-links" id=""><i class="fa fa-cog" style="font-size:24px;"></i></a>
+                  <a href="#" class="header-links" id="" data-toggle="modal" data-target="#editProfileModal"><i class="fa fa-cog" style="font-size:24px;"></i></a>
+                  
                 </div>
             </div>
    </div>
         
     </center> 
   </div>
+
+
+  <div class="container">
+    
+    <!-- Porfile Editing Modal-->
+
+<div class="modal fade" id="editProfileModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="profileModal">
+
+      <div class="modal-header">
+        <h4>Editar Perfil</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+    
+      <div class="modal-body">
+          <form id="editProfile">
+            <p>Nome</p>
+            <input type="text" class="form-control" id ="editName" value="">
+            <br></br>
+            <p>Username</p>
+            <input type="text" class="form-control" id="editUsername" value="" disabled>
+            <br></br>
+            <p>Password:</p>
+            <input type="password" class="form-control" id="editPassword" value="" required>
+            <br>
+            <input type="button"  id="showPass" class="btn btn-b4" value="Ver Password">
+            <br></br>
+            <p>Email:</p>
+            <input type="text" class="form-control" id="editEmail" value="" required>
+            <br></br>
+            <p>Imagem:</p>
+            <input type="text" class="form-control" id="editPhoto" value="">
+            <br><br>
+            <input type="submit"  class="btn btn-b4" value="Guardar Alterações">
+          </form> 
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 
 

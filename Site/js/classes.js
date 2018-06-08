@@ -394,7 +394,7 @@ function account(){
                      document.getElementById('signText').style.display = 'none';
                      if (Users[i].admin == 1){
                          document.getElementById('userText').style.display = 'inline'
-                         document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px;">';
+                         document.getElementById('userText').innerHTML = usernameLogin.value + " " + '<i class="fa fa-user" style="font-size:24px;  ">';
                          document.getElementById('logout').style.display = 'inline'
                          document.getElementById('backOffice').style.display = 'inline'
                      }
