@@ -6,6 +6,7 @@ window.onload = function() {
     storage()
     account()
     eventPage()
+    addToMyEvents()
    // init()
 
     
@@ -249,16 +250,6 @@ function renderEvents(){
 
       //Abrir modal do Evento
       let btnOpen = document.getElementsByClassName("openEvent")
-      /* 
-     <div class="modal-body">
-        <p id ="openEventImage"></p>
-        <p id="openEventDesc"></p>
-        <p id="openEventData"></p>
-        <p id="openEventLocal"></p>
-        <p id="openEventCategory"></p>
-        <p id="openEventAccountable"></p>
-      </div>
-      */
 
 
       for(let i = 0; i < btnOpen.length; i++){
@@ -301,4 +292,75 @@ function renderTags(){
     }
 
     eventFilter.innerHTML = str
+}
+
+
+function addToMyEvents(){
+
+    let addMyEvent = document.getElementById("addMyEvent")
+    let eventControl = document.getElementsByClassName("btn openEvent")
+    let selectedEvent = 0
+    let duplicate = 0
+
+    //Identifica o evento pelo seu id
+    for(let i = 0; i < eventControl.length; i++){
+        eventControl[i].addEventListener("click", function(){
+
+            console.log("Id do evento aberto: " + eventControl[i].id)
+            selectedEvent = i
+
+        }) 
+    }
+
+    //Ativa o butão adicionar evento
+    if (localStorage.getItem("loggedUser")) {
+        addMyEvent.style.display = "inline"
+    }
+
+    //Adiciona o evento ao lista de eventos do utilizador
+    addMyEvent.addEventListener("click", function(){
+         
+        let currentUser  = JSON.parse(localStorage.loggedUser)
+
+        for(let i = 0; i < currentUser.myEvents.length;i++){
+
+
+            if(currentUser.myEvents[i]._name == Events[selectedEvent]._name ){
+
+                duplicate = -1
+                break
+            }
+
+        }
+        
+        if(duplicate == 0){
+            currentUser.myEvents.push(Events[selectedEvent])
+
+            console.log(currentUser)
+    
+            //Update ao local Storage
+            localStorage.loggedUser = JSON.stringify(currentUser)
+    
+            for(let i = 0; i < Users.length;i++){
+    
+    
+                 if(Users[i]._username == currentUser._username ){
+    
+                     Users[i] = currentUser
+                     localStorage.allUsers = JSON.stringify(Users)
+                 }
+    
+             }
+    
+            alert(Events[selectedEvent]._name + " adicionado aos seus eventos")
+        }
+
+        else{
+            alert("Já adicionou este evento")
+            duplicate = 0
+        }
+        
+
+    })
+    
 }

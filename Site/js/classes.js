@@ -10,7 +10,7 @@ class User{
         this.admin = 0 
         this.image = ""
         this.name = ""
-        this.recomendations = []
+        this.myEvents = []
     }
 
 

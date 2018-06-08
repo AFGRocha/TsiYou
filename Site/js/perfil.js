@@ -16,6 +16,7 @@ function renderUser(){
     let profileUsername = document.getElementById("profileUsername")
     let profileEmail = document.getElementById("profileEmail")
     let profileMyEvents = document.getElementById("profileMyEvents")
+    let str = ""
 
     if (localStorage.getItem("loggedUser")) {
         let currentUser  = JSON.parse(localStorage.loggedUser)
@@ -31,6 +32,13 @@ function renderUser(){
         profileName.innerHTML= currentUser.name
         profileUsername.innerHTML = currentUser._username
         profileEmail.innerHTML = currentUser._email
+        
+        for(let i = 0; i < currentUser.myEvents.length;i++){
+
+            str += currentUser.myEvents[i]._name +"; "
+        }
+
+        profileMyEvents.innerHTML = str
         
     }
 }
@@ -66,7 +74,7 @@ function editUser(){
 
         if (localStorage.getItem("loggedUser")) {
             let currentUser  = JSON.parse(localStorage.loggedUser)
-            let x = 0
+           
             
             currentUser.name = editName.value  
             currentUser._username = editUsername.value 
@@ -80,7 +88,6 @@ function editUser(){
 
 
                 if(Users[i]._username == currentUser._username ){
-                    x = i
 
                     Users[i] = currentUser
                     localStorage.allUsers = JSON.stringify(Users)
@@ -89,7 +96,7 @@ function editUser(){
             }
 
             
-            alert("Alterações guardadas ")
+            alert("Alterações guardadas")
             
         }
         
