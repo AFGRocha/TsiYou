@@ -9,7 +9,9 @@ window.onload = function() {
     addToMyEvents()
    // init()
 
-    
+   if (localStorage.getItem("loggedUser")) {
+       renderRec()
+   }
 }
         
  
@@ -335,6 +337,7 @@ function addToMyEvents(){
         
         if(duplicate == 0){
             currentUser.myEvents.push(Events[selectedEvent])
+            currentUser.myTags.push(Events[selectedEvent]._category)
 
             console.log(currentUser)
     
@@ -363,4 +366,68 @@ function addToMyEvents(){
 
     })
     
+}
+
+
+function renderRec(){
+
+    let divRec = document.getElementById("recomendar")
+    let recTxt = document.getElementById("recTxt")
+    let recArray = []
+
+    recTxt.innerHTML = "Recomendações"
+    //
+
+    if (localStorage.getItem("loggedUser")) {
+        let currentUser  = JSON.parse(localStorage.loggedUser)
+
+        for(let i = 0; i < currentUser.myTags.length;i++){
+            for(let j = 0; j < Events.length; j++){
+                if(currentUser.myTags[i] == Events[j]._category){
+                    recArray.push(Events[j])
+                }
+            }
+        }
+    }
+
+    let str = "<center><p class='tsiyou-title text-white'>Recomendações</p></center>"
+    
+    let counter = 0
+    let eventCounter = 0
+    for(let i = 0; i < recArray.length; i++){
+
+       
+            divRec.innerHTML = ""
+
+            if( counter == 0){
+                str += '<div class="row">'
+            }
+
+
+            counter++
+           
+            
+            
+            str += '<div class="col-sm-12 col-md-4 col-lg-4">'
+            str += '<div class="card" style="width: 18rem;">'
+            str += '<img class="card-img-top" src="' + recArray[i]._image + '" alt="Card image cap">'
+            str += '<div class="card-body">'
+            str += '<h5 class="card-title text-dark">' + recArray[i]._name + '</h5>'  
+            str += '<p class="card-title text-dark">' + recArray[i]._data + '</p>' 
+            str += '<p class="card-title text-dark">' + recArray[i]._local + '</p>'  
+            str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="btn openEvent" value="Ver mais" id="'+ eventCounter + '"></center>' 
+            str += '</div></div></div>'
+
+            divRec.innerHTML = str
+            eventCounter++
+            
+            if (counter == 3){
+                counter = 0
+
+                str += '</div><br><br>'
+
+            divRec.innerHTML = str
+
+            }
+        }
 }

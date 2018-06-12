@@ -11,6 +11,7 @@ class User{
         this.image = ""
         this.name = ""
         this.myEvents = []
+        this.myTags = []
     }
 
 
