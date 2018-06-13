@@ -375,8 +375,8 @@ function renderRec(){
     let recTxt = document.getElementById("recTxt")
     let recArray = []
 
-    recTxt.innerHTML = "Recomendações"
-    //
+    //recTxt.innerHTML = "Recomendações"
+    
 
     if (localStorage.getItem("loggedUser")) {
         let currentUser  = JSON.parse(localStorage.loggedUser)
