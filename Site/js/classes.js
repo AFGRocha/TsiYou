@@ -373,6 +373,17 @@ function storage(){
       else{
           localStorage.savedTags = JSON.stringify(allTags)
       }
+
+      //Testimonail local storage
+
+      if(localStorage.getItem("savedTestimonials")){
+          let getTest = JSON.parse(localStorage.savedTestimonials)
+          Testimonials = getTest
+      }
+
+      else{
+          localStorage.savedTestimonials = JSON.stringify(Testimonials)
+      }
 }
 
 

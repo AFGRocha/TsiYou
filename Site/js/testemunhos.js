@@ -3,6 +3,10 @@ window.onload = function() {
     storage()
     account()
     renderTestimonials()
+    sendTest()
+    if (localStorage.getItem("loggedUser")) {
+        document.getElementById("addTest").style.display = "inline"
+    }
 }
 
 
@@ -54,4 +58,44 @@ function renderTestimonials(){
             }
         }
     
+    }
+
+
+    function sendTest(){
+        
+    let btnSend = document.getElementById("addMyTest")
+    let textTest = document.getElementById("textTest")
+
+    btnSend.addEventListener("click", function(){
+
+        if(textTest.value != ""){
+            
+            let currentUser = JSON.parse(localStorage.loggedUser)
+
+            let newTest = new Testimonial(currentUser.name,currentUser.image,textTest.value)
+    
+            if(localStorage.getItem("sentTest")){
+                let getTest = JSON.parse(localStorage.sentTest)
+                getTest.push(newTest)
+                localStorage.sentTest = JSON.stringify(getTest)
+                console.log(newTest)
+    
+            }
+      
+            else{
+                let storeTest = []
+                storeTest.push(newTest)
+                localStorage.sentTest = JSON.stringify(storeTest)
+                console.log(newTest)
+            }
+        }
+
+        else{
+            alert("Porfavor escreva algo!")
+        }
+
+    
+
+    })
+ 
     }

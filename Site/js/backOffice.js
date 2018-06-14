@@ -10,7 +10,9 @@ function renderTables() {
     let userTbl = document.getElementById("Users")
     let eventTbl = document.getElementById("Events")
     let partnerTbl = document.getElementById("Partners")
+    let testTbl = document.getElementById("Testemunhos")
     let tblUser = document.getElementById("tblMain")
+    let tblTest = document.getElementById("tblTest")
     let btnAddPartner = document.getElementById("btnAddPartner")
 
     
@@ -19,6 +21,7 @@ function renderTables() {
 
         event.preventDefault()
         btnAddPartner.style.display = 'none'
+        tblTest.style.display = 'none'
             tableUsers()
             
     })
@@ -27,6 +30,7 @@ function renderTables() {
 
         event.preventDefault()
         btnAddPartner.style.display = 'none'
+        tblTest.style.display = 'none'
         tableEvents()
     })
 
@@ -34,7 +38,19 @@ function renderTables() {
 
         event.preventDefault()
         btnAddPartner.style.display = 'inline'
+        tblTest.style.display = 'none'
         tablePartners()
+    })
+
+    
+    testTbl.addEventListener("click", function(event) { 
+
+        event.preventDefault()
+        btnAddPartner.style.display = 'none'
+        tblTest.style.display = "inline"
+           tableSentTest()
+           tableTest()
+            
     })
 }
 
@@ -328,4 +344,136 @@ function tablePartners(){
         $('#addPartnerModal').modal('hide');
         addPartner.reset()
     })
+}
+
+
+function tableSentTest(){
+    let tblUser = document.getElementById("tblMain")
+   
+    //Clear na tabela
+    tblUser.innerHTML = ""
+
+    //Counter responsavel por identificar os users
+    let counter = 0
+
+    //string com o que vai conter a tabela
+    let str = ""
+    str = "<thead class='thead-dark'><tr><th>Nome</th><th>Imagem</th><th>Testemunho</th><th>Ações</th></tr></thead><tbody>"
+
+    if(localStorage.getItem("sentTest")){
+        let sentTest = JSON.parse(localStorage.sentTest)
+           //Atualiza a tabela com o conteudo do array
+    for (let i = 0; i < sentTest.length;i++){
+        console.log("Teste")
+        str += "<tr>"
+        str += "<td>" + sentTest[i]._user + "</td>"
+        str += "<td>" + sentTest[i]._image + "</td>"
+        str += "<td>" + sentTest[i]._text + "</td>"
+        str += "<td><input type='button' class='aceitar' value='Aceitar' id='"+ counter + "'>" + "<input type='button' class='remover' value='Não Aceitar' id='"+ counter + "'></td>"
+                
+        str +="</tr>"
+        counter++
+    }
+    
+    tblUser.innerHTML = str
+
+    //Cria o butao remover que remove o respetivo testemunho de acordo o seu ID
+    let remove = document.getElementsByClassName("remover")
+
+
+    for(let i = 0; i < remove.length; i++){
+        remove[i].addEventListener("click", function(){
+
+            console.log(remove[i].id)
+
+            let delet = parseInt(remove[i].id)
+
+            Partners.splice(delet,1)
+
+            localStorage.allPartners = JSON.stringify(Partners)
+
+            tableSentTest()
+
+        }) 
+    }
+
+    let aceitar = document.getElementsByClassName("aceitar")
+
+    for(let i = 0; i < aceitar.length; i++){
+        aceitar[i].addEventListener("click", function(){
+
+            console.log(aceitar[i].id)
+
+            let delet = parseInt(aceitar[i].id)
+
+            let getTest = JSON.parse(localStorage.savedTestimonials)
+            getTest.push(sentTest[delet])
+            Testimonials = getTest
+            localStorage.savedTestimonials = JSON.stringify(Testimonials)
+
+            sentTest.splice(delet,1)
+            console.log(sentTest)
+
+            localStorage.sentTest = JSON.stringify(sentTest)
+
+
+            tableSentTest()
+
+        }) 
+    }
+    }
+
+ 
+}
+
+
+function tableTest(){
+    let tblUser = document.getElementById("tblTest")
+
+    //Clear na tabela
+    tblUser.innerHTML = ""
+         
+    //Counter responsavel por identificar os users
+    let counter = 0
+         
+    //string com o que vai conter a tabela
+    let str = ""
+    str = "<thead class='thead-dark'><tr><th>Nome</th><th>Imagem</th><th>Testemunho</th><th>Ações</th></tr></thead><tbody>"
+         
+    //Atualiza a tabela com o conteudo do array Events
+     for (let i = 0; i < Testimonials.length;i++){
+     str += "<tr>"
+     str += "<td>" + Testimonials[i]._user + "</td>"
+     str += "<td><img src='" + Testimonials[i]._image + "'></td>"
+     str += "<td>" + Testimonials[i]._text + "</td>"
+
+    str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'></td>"                  
+                    
+    str +="</tr>"
+                   
+    counter++
+    
+    }
+                
+        tblUser.innerHTML = str
+         
+        //Cria o butao remover que remove o respetivo user de acordo o seu ID
+        let remove = document.getElementsByClassName("remover")
+         
+         
+        for(let i = 0; i < remove.length; i++){
+             remove[i].addEventListener("click", function(){
+         
+                console.log(remove[i].id)
+            
+                let delet = parseInt(remove[i].id)
+            
+                Testimonials.splice(delet,1)
+         
+                localStorage.savedTestimonials = JSON.stringify(Testimonials)
+            
+                tableTest()
+         
+            }) 
+         }
 }
