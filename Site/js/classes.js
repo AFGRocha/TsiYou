@@ -229,6 +229,46 @@ class Event{
     }
 }
 
+class Testimonial{
+    constructor(user,image,text){
+        this.user = user
+        this.image = image
+        this.text = text
+    }
+      // Property user
+      get user() {
+        return this._user
+    }
+
+    set user(newUser) {
+        this._user = newUser        
+    }
+
+     // Property image
+     get image() {
+        return this._image
+    }
+                
+    set image(newImage) {
+        this._image = newImage          
+    } 
+
+
+    // Property password
+    get text() {
+        return this._text
+    }
+    
+    set text(newText) {
+        this._text = newText      
+    }
+}
+
+let Testimonials = []
+let testi1 = new Testimonial("Zé Silva","","Gosto muito de TSIW :D")
+Testimonials.push(testi1)
+Testimonials.push(testi1)
+Testimonials.push(testi1)
 
 //Hard code users 
 let Users = []

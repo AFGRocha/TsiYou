@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TsiYou - Perfil</title>
+ <!-- Required meta tags -->
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ <!-- TsiYou CSS--> 
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400,500,700" rel="stylesheet">
+    <script src="../js/classes.js"></script> 
+    <script src="../js/testemunhos.js"></script> 
+     
+
+</head>
+  <body>     
+        <span class="glyphicons glyphicons-user"></span>
+        <header class="header" id="myHeader">
+    
+          <a href="../index.html"><img src="../images/teste.png " width="200"> </a> <strong>| Eventos de Tsiw? TsiYou There!</strong>
+    
+            <div class="header-right">
+            
+                    <a class="header-links"  href="#" id="logText" data-toggle="modal" data-target="#loginModal"> Login</a>
+                    <a class="header-links" href="perfil.html" id="userText" style="display:none">|</a>
+                    <a href="../backOffice.html" class="header-links" id="backOffice" style="display:none"><i class="fa fa-cog" style="font-size:24px;"></i></a>
+                    <a class="header-links" >|</a>
+                    <a class="header-links" href="#" id="signText" data-toggle="modal" data-target="#signupModal"> Sign Up</a>
+                    <a class="header-links" href="#" id="logout" style="display:none">Logout</a>
+                    
+                    
+                    
+             
+            </div>
+            
+        </header>
+      
+    
+    <div class="container">
+    
+          <!-- Login Modal-->
+    
+     <div class="modal fade" id="loginModal" role="dialog">
+        <div class="modal-dialog">
+    
+          <!-- Modal content-->
+          <div class="modal-content" id="loginModal">
+      
+            <div class="modal-header">
+              <h4>Login</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+          
+            <div class="modal-body">
+                <form id="login">
+                  <p>User Name</p>
+                  <input type="text" id ="username" value="" required>
+                  <br></br>
+                  <p>Password:</p>
+                  <input type="password" id="password" value="" required>
+                  <p id="logCheck" style="color:red"></p>
+                  <br><br>
+                  <input type="submit" class="btn btn-b4" value="Login">
+                </form> 
+            </div>
+    
+            <div class="modal-footer">
+              <button type="button" class="btn btn-b4" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          </div>
+          </div>
+    
+          </div>
+     
+          <div class="container">
+              <!-- Sign Up Modal-->
+        
+         <div class="modal fade" id="signupModal" role="dialog">
+            <div class="modal-dialog">
+        
+              <!-- Modal content-->
+              <div class="modal-content">
+          
+                <div class="modal-header">
+                  <h4>Sign Up</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+              
+                <div class="modal-body">
+                    <form id="signup">
+                        <p>Email:</p>
+                        <input type="text" id="email" value="" required>
+                        <p>User Name</p>
+                        <input type="text" id="newUser" value="" required>
+                        <br></br>
+                        <p>Password:</p>
+                        <input type="password" id="newPass" value="" required>
+                        <br></br>
+                        <p>Repetir Password:</p>
+                        <input type="password" id="newPass2" value="" required>
+                        <p id="signCheck" style="color:red"></p>
+                        <br></br>
+                        <input type="submit" class="btn btn-b4" value="Sign Up">
+                      </form> 
+                </div>
+        
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-b4" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+              </div>
+              </div>
+              </div>
+
+  <!-- Testemunhos -->
+  <div class="tsipt bg-dark text-dark">
+      <center><p class="tsiyou-title text-white">Testemunhos</p></center>
+    <div style="margin-left:90px" id="divTest">
+
+    </div>
+
+  </div>
+
+
+
+
+    <footer class="tsiyou-footer"><center><p>ESMAD © 2018</p></center></footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

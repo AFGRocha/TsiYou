@@ -5,6 +5,7 @@ window.onload = function() {
     storage()
     account()
     init()
+    renderTestimonials()
 
     if (control == "TsiYou"){
         document.getElementsByTagName("BODY")[0].onresize = function() {
@@ -595,20 +596,17 @@ function renderPartners(){
     }
 }
 
-
-//Lista de eventos
-
-/*function renderEvents(){
-    let divEvents = document.getElementById("Events")
+function renderTestimonials(){
+    let divTest = document.getElementById("Testemunhos")
 
     let str = ""
     
     let counter = 0
     let eventCounter = 0
-    for(let i = 0; i < Events.length; i++){
+    for(let i = 0; i < Testimonials.length; i++){
 
        
-            divEvents.innerHTML = ""
+            divTest.innerHTML = ""
 
             if( counter == 0){
                 str += '<div class="row">'
@@ -616,63 +614,33 @@ function renderPartners(){
 
 
             counter++
-           
             
-            
-            str += '<div class="col-sm-12 col-md-4 col-lg-4">'
-            str += '<div class="card" style="width: 18rem;">'
-            str += '<img class="card-img-top" src="' + Events[i].image + '" alt="Card image cap">'
+            str += '<div class="col-sm-12 col-md-6 col-lg-6">'
+            str += '<div class="card" style="width: 40rem;">'
             str += '<div class="card-body">'
-            str += '<h5 class="card-title text-dark">' + Events[i].name + '</h5>'  
-            str += '<p class="card-title text-dark">' + Events[i].data + '</p>' 
-            str += '<p class="card-title text-dark">' + Events[i].local + '</p>'  
-            str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="btn openEvent" value="Ver mais" id="'+ eventCounter + '"></center>' 
+            if(Testimonials[i]._image == ""){
+                str += "<img id='profilePhoto' style='float: left; margin-right:10px' width='250' alt='Image' src='https://www.w3schools.com/bootstrap4/img_avatar3.png'>"
+            }
+           
+            else{
+                str += "<img id='profilePhoto' style='float: left; margin-right:10px' width='250' alt='Image' src='" + Testimonials[i]._image + "'>"
+            }
+            str += '<h5 class="text-dark">' + Testimonials[i]._user + '</h5>'  
+            str += '<p class="card-title text-dark">' + Testimonials[i]._text + '</p>'  
             str += '</div></div></div>'
 
-            divEvents.innerHTML = str
+            divTest.innerHTML = str
             eventCounter++
             
-            if (counter == 3){
+            if (counter == 2){
                 counter = 0
 
                 str += '</div><br><br>'
+                break
 
-            divEvents.innerHTML = str
+            divTest.innerHTML = str
 
             }
+        }
     
-    }
-
-
-      //Cria o butao remover que remove o respetivo filme de acordo o seu ID
-      let btnOpen = document.getElementsByClassName("openEvent")
-
-
-      for(let i = 0; i < btnOpen.length; i++){
-          btnOpen[i].addEventListener("click", function(){
-
-            let eventTitle = document.getElementById("eventTitle")
-
-            eventTitle.innerHTML = Events[i].name
-
-        
-
-          }) 
-      }
-}*/
-
-//Lista de tags, adiciona as tags ao select com todos os filtros
-
-/*function renderTags(){
-    let eventFilter = document.getElementById("eventFilter")
-    let str = ""
-    str = eventFilter.innerHTML
-
-    for(let i = 0; i < allTags.length;i++){
-        
-        str += '<option class="teste" value="tagID">-' + allTags[i] + '</option>'
-        
-    }
-
-    eventFilter.innerHTML = str
-}*/
+}
