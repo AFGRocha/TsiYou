@@ -7,7 +7,7 @@ window.onload = function() {
     init()
     renderTestimonials()
 
-    if (control == "TsiYou"){
+ 
         document.getElementsByTagName("BODY")[0].onresize = function() {
             let w = window.innerWidth;
             let h = window.innerHeight;
@@ -15,7 +15,7 @@ window.onload = function() {
             console.log("Altura atual da página: " + h)
             renderDocentes()
         };
-    }
+    
   
 
 
@@ -479,6 +479,7 @@ function renderDocentes(){
     let divDocente = document.getElementById("Docentes")
 
     let counter = 0
+    divDocente.innerHTML = ""
     let str = ""
     str += '<div class="row">'
     let w = window.innerWidth;
@@ -511,6 +512,7 @@ function renderDocentes(){
             
                 str += '</div>'
                 divDocente.innerHTML = str
+                counter = 0
     
                 break
             }
@@ -519,7 +521,7 @@ function renderDocentes(){
     
 
 
-    if(w < 1000){
+    else if(w < 1000 && w > 767){
         for(let i = 0; i < Users.length; i++){
 
             if (Users[i].docente == 1) {
@@ -544,10 +546,32 @@ function renderDocentes(){
     
             if(counter == 2){
             
-                str += '</div>'
+                str += '</div><br><br>'
                 divDocente.innerHTML = str
+                counter = 0
     
                 break
+            }
+        }
+    }
+
+    else if(w < 767){
+        for(let i = 0; i < Users.length; i++){
+
+            if (Users[i].docente == 1) {
+                divDocente.innerHTML = ""
+    
+                str += '<div class="col-sm-12 col-md-6 col-lg-6">'
+                str += '<div class="card" style="width: 18rem;">'
+                str += '<img class="card-img-top" src="' + Users[i].image + '" alt="Card image cap">'
+                str += '<div class="card-body">'
+                str += '<h5 class="card-title text-dark">' + Users[i].name + '</h5>'   
+                str += '</div></div></div></div>'
+                
+               
+                
+                divDocente.innerHTML = str
+                break   
             }
         }
     }
@@ -577,9 +601,9 @@ function renderPartners(){
             
             
             str += '<div class="col-sm-4 col-md-4 col-lg-4">'
-            str += '<center><img src="' + Partners[i]._image + '"></center>'
+            str += '<center><img src="' + Partners[i]._image + '" style="position:relative"></center>'
 
-            str += '</div>'
+            str += '</div><br><br>'
             //str += '<div class="col-md-1 col-lg-1"></div>'
            
             
@@ -602,7 +626,6 @@ function renderTestimonials(){
     let str = ""
     
     let counter = 0
-    let eventCounter = 0
     for(let i = 0; i < Testimonials.length; i++){
 
        
@@ -630,7 +653,6 @@ function renderTestimonials(){
             str += '</div></div></div>'
 
             divTest.innerHTML = str
-            eventCounter++
             
             if (counter == 2){
                 counter = 0
