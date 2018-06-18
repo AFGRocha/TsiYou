@@ -7,6 +7,8 @@ window.onload = function() {
     account()
     eventPage()
     addToMyEvents()
+
+    
    // init()
 
    if (localStorage.getItem("loggedUser")) {
@@ -103,6 +105,7 @@ function eventPage(){
         //Filtro todos
         if(eventFilter.value == "todos"){
             renderEvents()
+            renderRec()
         }
 
         //Filtro recentes
@@ -256,6 +259,7 @@ function renderEvents(){
 
       for(let i = 0; i < btnOpen.length; i++){
           btnOpen[i].addEventListener("click", function(){
+            
 
             let openEventTitle = document.getElementById("openEventTitle")
             let openEventImage = document.getElementById("openEventImage")
@@ -264,6 +268,7 @@ function renderEvents(){
             let openEventLocal = document.getElementById("openEventLocal")
             let openEventCategory = document.getElementById("openEventCategory")
             let openEventAccountable = document.getElementById("openEventAccountable")
+            let divComment = document.getElementById("divComment")
 
             openEventTitle.innerHTML = Events[i]._name
             openEventImage.src = Events[i]._image
@@ -272,9 +277,74 @@ function renderEvents(){
             openEventLocal.innerHTML = "Local: " + Events[i]._local
             openEventCategory.innerHTML ="Categoria:  " + Events[i]._category
             openEventAccountable.innerHTML ="Responsável: " + Events[i]._accountable
+            
+        //Carrega os comentarios do evento
+            divComment.innerHTML = ""
+            let str = ""
+
+            for(let j = 0; j < Events[i].comments.length; j++){
+        
+                console.log("teste")
+                str += '<div class="col-sm-12 col-md-12 col-lg-12">'
+                if(Events[i].comments[j]._image == ""){
+                    str += '<img class="rounded float-left marginimg" src="https://www.w3schools.com/bootstrap4/img_avatar3.png" style="width:70px" alt="Card image cap">' 
+                }
+                else{
+                    str += '<img class="rounded float-left marginimg" src="' + Events[i].comments[j]._image + '" style="width:50px" alt="Card image cap">'
+                }
+                
+                str += '<h5 class="card-title text-dark">' + Events[i].comments[j]._user + '</h5>'  
+                str += '<p class="card-title text-dark">' + Events[i].comments[j]._text  + '</p>' 
+                str += '</div>'
+        
+               divComment.innerHTML = str
+            }
+
+
+            //Envia o comentario 
+            let textComment = document.getElementById("textComment")
+            let btnComment =  document.getElementById("btnComment")
+        
+            //Verificar se o evento ja ocorreu 
+            
+   
+            let today = new Date();
+            let d = today.getTime()
+            console.log(d)
+            let timeTime = Date.parse(Events[i]._data)
+            console.log("Milisegundos do evento: " + timeTime)
+
+            if (localStorage.getItem("loggedUser")) {
+                if(timeTime < d){
+                    textComment.style.display = "inline"
+                    btnComment.style.display = "inline"
+                }
+    
+                else{
+                    textComment.style.display = "none"
+                    btnComment.style.display = "none"
+                }
+                btnComment.addEventListener("click", function (event) {
+            
+                    if(textComment.value == ""){
+                        alert("Escreva algo no comentário")
+                    }
+                    
+                    else{
+                        let currentUser  = JSON.parse(localStorage.loggedUser)
+                        let newComment = new Comment(currentUser.name,currentUser.image,textComment.value)
+                        Events[i].comments.push(newComment)
+                        localStorage.allEvents = JSON.stringify(Events)
+                        console.log(Events[i])
+                        alert("Comentário feito")
+                        location.reload()
+                    }
+    
+    
+                })
+            }
 
         
-
           }) 
       }
 }

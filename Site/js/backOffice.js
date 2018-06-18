@@ -47,7 +47,7 @@ function renderTables() {
 
         event.preventDefault()
         btnAddPartner.style.display = 'none'
-        tblTest.style.display = "inline"
+        tblTest.style.display = ""
            tableSentTest()
            tableTest()
             

@@ -123,6 +123,7 @@
       <div class="container"> 
           <form class="form-inline tsipt bg-dark text-white">
             <div class="form-group mb-2">
+              <br>
               <label for="selUsers">Filtrar: </label>
               <select class="form-control" id="eventFilter">
                   <option value="todos">Todos</option>
@@ -184,6 +185,13 @@
 
         <button type="button" class="btn btn-b4" style="display:none" id="addMyEvent">Adicionar aos Meus Eventos</button>
       </div>
+      <div class="modal-body" id="commentSection">
+          <textarea  rows="5" cols="50" id="textComment" style="display:none" ></textarea>
+          <button type="button" class="btn btn-b4" style="display:none" id="btnComment">Comentar</button>
+        <h5>Comentários:</h5>
+        <div id="divComment"></div> 
+      </div>
+
 
       <!-- Modal footer -->
       <div class="modal-footer">
