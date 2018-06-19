@@ -136,6 +136,7 @@ class Event{
        this.accountable = accountable
        this.image = image
        this.comments = []
+       this.points = 0
 
     }
 
@@ -363,12 +364,12 @@ let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B
 Events.push(eventTest2)
 let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
 Events.push(eventTest3)
-
+/*
 Events.push(eventTest)
 Events.push(eventTest)
 Events.push(eventTest)
 Events.push(eventTest)
-Events.push(eventTest)
+Events.push(eventTest)*/
 
 eventTest2.comments.push(comment1)
 

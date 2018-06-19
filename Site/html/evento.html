@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>TsiYou - Eventos</title>
+    <title>TsiYou - Perfil</title>
  <!-- Required meta tags -->
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,400,500,700" rel="stylesheet">
     <script src="../js/classes.js"></script> 
-    <script src="../js/events.js"></script> 
+    <script src="../js/evento.js"></script> 
      
 
 </head>
@@ -118,144 +118,53 @@
               </div>
               </div>
 
-  <!-- Eventos -->
-  <div class="tsipt bg-dark text-white">
-      <div class="container"> 
-          <form class="form-inline tsipt bg-dark text-white">
-            <div class="form-group mb-2">
-              <br>
-              <label for="selUsers">Filtrar: </label>
-              <select class="form-control" id="eventFilter">
-                  <option value="todos">Todos</option>
-                  <option value="recentes">Eventos mais recentes</option>
-                  <option value="melhor">Eventos melhor pontuados</option>
-                  <option value="realizados">Eventos realizados</option>
-                  <option value="realizar">Eventos a realizar</option>
-                  <option value="">Por tag:</option>
-              </select>
-            </div>
-           
-            <div class = "col-md-1">
-              <button id="btnSearch" type="button" class="btn btn-b4">Procurar</button>
-            </div>
+  <!-- Docentes  <div class="container" id="Parcerias" style="padding-top:60px;  margin-left: 250px;"> -->
+  <div class="tsipt bg-dark text-dark">
+    <center>
+   <div style="padding-top:60px;padding-bottom:60px;">
+     <div class="card perfil" style="width: 80rem;">
+            <div class="card-body">
 
-            <div class = "col-md-1">
-              <button id="btnAddEvent" type="button" class="btn btn-b4" data-toggle="modal" data-target="#addEventModal" style="display:none">Adicionar Evento</button>
+                <h4 class="modal-title" id="openEventTitle">Modal Heading</h4>
+                <img src="" style="float: left; margin-right:10px" width="400"  id ="openEventImage">
+                <p id="openEventData"></p>
+                <p id="openEventLocal"></p>
+                <p id="openEventCategory"></p>
+                <p id="openEventAccountable"></p>
+                <p id="openEventDesc"></p>
+                <button type="button" class="btn btn-b4" style="display:none" id="addMyEvent">Adicionar aos Meus Eventos</button>
+
+              
             </div>
-          
-          </form>
-        </div>
-        <br>
-    <div class="container" id="Events">
+            <div style="margin-left:10px">
+                
+                <label style="display:none" for="myRange" id="txtScore">Pontuar:</label>
+                <input style="display:none" type="range" min="1" max="5" value="0" id="myRange">
+                <p id="txtValor" style="display:none"> Valor: <span id="demo"></span></p>
+                <button type="button" class="btn btn-b4" style="display:none" id="btnScore">Pontuar</button>
+                
+            </div>
+      
+                
+            <div id="commentSection" style="margin-left:10px">
 
-    </div>
+                <textarea  rows="5" cols="50" id="textComment" style="display:none" ></textarea>
+                <br>
+                <button type="button" class="btn btn-b4" style="display:none" id="btnComment">Comentar</button>
+                <br>
+                <h5>Comentários:</h5>
+                <div id="divComment"></div> 
 
-    <!-- Recomendações -->
-  <div class="container" id="recomendar">
-  
+            </div>
   </div>
 
-  </div>
-
-
-
-
-<div class="container">
-              <!-- The Event Modal -->
-<div class="modal" id="eventModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title" id="openEventTitle">Modal Heading</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <img src=""  class="rounded float-left marginimg" id ="openEventImage"></img>
         
-        <p id="openEventData"></p>
-        <p id="openEventLocal"></p>
-        <p id="openEventCategory"></p>
-        <p id="openEventAccountable"></p>
-        <br>
-        <p id="openEventDesc"></p>
-
-        <button type="button" class="btn btn-b4" style="display:none" id="addMyEvent">Adicionar aos Meus Eventos</button>
-        <button type="button" class="btn btn-b4" style="display:none" id="viewCo">Ver Comentários/Pontuação</button>
-      </div>
-      <div>
-      </div>
-
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-b4" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
+    </center> 
   </div>
 </div>
-</div>     
 
 
 
-<div class="container">
-    
-    <!-- Event adding modal-->
-
-<div class="modal fade" id="addEventModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content" id="eventModal">
-
-      <div class="modal-header">
-        <h4>Adicionar Evento</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-    
-      <div class="modal-body">
-          <form id="addEvent">
-            <p>Nome do Evento:</p>
-            <input type="text" class="form-control" id ="eventName" value="" required>
-            <br></br>
-            <p>Descrição:</p>
-            <input type="text" class="form-control" id="eventDesc" value="" required>
-            <br></br>
-            <p>Data:</p>
-            <input type="date" class="form-control" id="eventDate" value="" required>
-            <br></br>
-            <p>Hora:</p>
-            <input type="time" class="form-control" id="eventTime" value="" required>
-            <br></br>
-            <p>Local:</p>
-            <input type="text" class="form-control" id="eventLocal" value="" required>
-            <br></br>
-            <p>Responsavel:</p>
-            <select class="form-control" id="eventAccountable"> 
-            </select>
-            <br></br>
-            <p>Categoria/Tag:</p>
-            <input type="text" class="form-control" id="eventCategory" value="" required>
-            <br></br>
-            <p>Imagem:</p>
-            <input type="text" class="form-control" id="eventPic" value="" required>
-            <br><br>
-            <input type="submit"  class="btn btn-b4" value="Adicionar">
-          </form> 
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-b4" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    </div>
-    </div>
-
-    </div>
 
 
     <footer class="tsiyou-footer"><center><p>ESMAD © 2018</p></center></footer>
