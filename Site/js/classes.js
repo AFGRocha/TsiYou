@@ -12,6 +12,7 @@ class User{
         this.name = ""
         this.myEvents = []
         this.myTags = []
+        this.myScores = []
     }
 
 
@@ -136,7 +137,8 @@ class Event{
        this.accountable = accountable
        this.image = image
        this.comments = []
-       this.points = 0
+       this.scores = []
+       this.average = 0
 
     }
 
