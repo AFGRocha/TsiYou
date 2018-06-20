@@ -13,6 +13,9 @@ class User{
         this.myEvents = []
         this.myTags = []
         this.myScores = []
+        this.formacao = ""
+        this.uc = ""
+        this.cv = ""
     }
 
 
