@@ -114,6 +114,31 @@ function eventPage(){
             renderEvents()
         }
 
+        //Filtro melhor pontuado
+
+        if(eventFilter.value == "melhor"){
+            
+            let backupArray = Events
+
+            function compare(a,b) {
+                if (a.average < b.average){
+                    return 1;
+                }
+                  
+                if (a.average > b.average){
+                    return -1;
+                }  
+                return 0;
+              }
+
+              backupArray.sort(compare)
+
+              console.log(backupArray)
+              Events = backupArray
+              renderEvents()
+              
+        }
+
         //Filtro realizados
         if(eventFilter.value == "realizados"){
 
