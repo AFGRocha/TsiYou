@@ -44,6 +44,7 @@ function eventPage(){
     let eventPic = document.getElementById("eventPic")
 
     let docStr = ""
+    let tagStr = ""
 
     for(let i = 0; i < Users.length; i++){
 
@@ -57,9 +58,17 @@ function eventPage(){
         }
     }
 
+    for(let i = 0; i < allTags.length; i++){
+        eventCategory.innerHTML=""
+
+        tagStr += '<option value="' + allTags[i] + '">' + allTags[i]+'</option>'
+        eventCategory.innerHTML = tagStr
+        console.log(allTags)
+    }
+
 
     addEvent.addEventListener("submit", function (event) {
-
+        
         event.preventDefault()
 
         let newEvent = new Event(eventName.value,eventDesc.value,eventDate.value,eventTime.value,eventLocal.value,"-" + eventCategory.value,eventAccountable.value,eventPic.value)
@@ -68,7 +77,7 @@ function eventPage(){
         renderEvents()
         console.log(allTags.indexOf(eventCategory.value))
 
-        if(allTags.indexOf(eventCategory.value) ==-1){
+      /*  if(allTags.indexOf(eventCategory.value) ==-1){
             console.log("New tag added: "+ eventCategory.value)
             let tagBackup = allTags
             allTags = []
@@ -81,7 +90,7 @@ function eventPage(){
             let myTagsArray = JSON.parse(localTags)
             myTagsArray.push(eventCategory.value)
             localStorage.savedTags = JSON.stringify(myTagsArray)
-        }
+        } */
 
         let localEvents = localStorage.getItem("allEvents")
         let myEventsArray  = JSON.parse(localEvents)

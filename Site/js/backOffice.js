@@ -11,9 +11,13 @@ function renderTables() {
     let eventTbl = document.getElementById("Events")
     let partnerTbl = document.getElementById("Partners")
     let testTbl = document.getElementById("Testemunhos")
+    let tagTbl =  document.getElementById("Categorias")
     let tblUser = document.getElementById("tblMain")
     let tblTest = document.getElementById("tblTest")
+    let addTag = document.getElementById("addTag")
     let btnAddPartner = document.getElementById("btnAddPartner")
+    let btnTag = document.getElementById("btnTag")
+    let txtTag = document.getElementById("txtTag")
 
     
 
@@ -22,6 +26,7 @@ function renderTables() {
         event.preventDefault()
         btnAddPartner.style.display = 'none'
         tblTest.style.display = 'none'
+        addTag.style.display = 'none'
             tableUsers()
             
     })
@@ -31,6 +36,7 @@ function renderTables() {
         event.preventDefault()
         btnAddPartner.style.display = 'none'
         tblTest.style.display = 'none'
+        addTag.style.display = 'none'
         tableEvents()
     })
 
@@ -39,6 +45,7 @@ function renderTables() {
         event.preventDefault()
         btnAddPartner.style.display = 'inline'
         tblTest.style.display = 'none'
+        addTag.style.display = 'none'
         tablePartners()
     })
 
@@ -48,9 +55,20 @@ function renderTables() {
         event.preventDefault()
         btnAddPartner.style.display = 'none'
         tblTest.style.display = ""
+        addTag.style.display = 'none'
            tableSentTest()
            tableTest()
             
+    })
+
+    tagTbl.addEventListener("click", function(event) { 
+
+        event.preventDefault()
+        btnAddPartner.style.display = 'none'
+        tblTest.style.display = 'none'
+        addTag.style.display = ''
+        tableTag()
+        newTag()
     })
 }
 
@@ -476,4 +494,75 @@ function tableTest(){
          
             }) 
          }
+}
+
+
+function tableTag(){
+
+    let tblUser = document.getElementById("tblMain")
+
+    //Clear na tabela
+    tblUser.innerHTML = ""
+
+    //Counter responsavel por identificar os users
+    let counter = 0
+
+    //string com o que vai conter a tabela
+    let str = ""
+    str = "<thead class='thead-dark'><tr><th>Categoria</th><th>Ações</th></tr></thead><tbody>"
+
+    //Atualiza a tabela com o conteudo do array Events
+    for (let i = 0; i < allTags.length;i++){
+        str += "<tr>"
+        str += "<td>" + allTags[i] + "</td>"
+        str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'></td>"  
+        str +="</tr>"
+        counter++
+    }
+    
+    str += "<p>Ao remover uma categoria ira remover todos os eventos dessa categoria</p>"
+    tblUser.innerHTML = str
+
+    //Cria o butao remover que remove o respetivo user de acordo o seu ID
+    let remove = document.getElementsByClassName("remover")
+    let backupArray = []
+
+
+    for(let i = 0; i < remove.length; i++){
+        remove[i].addEventListener("click", function(){
+
+            console.log(remove[i].id)
+
+            let delet = parseInt(remove[i].id)
+            let currentTag = "-" + allTags[i]
+
+            allTags.splice(delet,1)
+
+            for(let j = 0; j < Events.length;j++){
+                console.log("entrou no for")
+                if(Events[j]._category != currentTag){
+                        backupArray.push(Events[j])
+                }
+            }
+            Events = backupArray
+
+            localStorage.savedTags = JSON.stringify(allTags)
+            localStorage.allEvents = JSON.stringify(Events)
+            tableTag()
+
+        }) 
+    }
+}
+
+function newTag(){
+    btnTag.addEventListener("click", function(){
+
+        allTags.push(txtTag.value)
+        localStorage.savedTags = JSON.stringify(allTags)
+        txtTag.reset
+        alert("Categoria adicionada")
+        tableTag()
+
+    }) 
+
 }
