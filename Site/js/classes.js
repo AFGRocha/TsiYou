@@ -55,7 +55,8 @@ class User{
       static getLastId() {
         let lastId = 0
         if (Users.length > 0) {
-            lastId = Users[Users.length-1].id
+            lastId = parseInt(Users[Users.length-1]._id)
+            console.log("last id = " + Users[Users.length-1]._id)
         }        
         return lastId
     }
@@ -118,7 +119,7 @@ class Partner{
       static getLastId() {
         let lastId = 0
         if (Partners.length > 0) {
-            lastId = Partners[Partners.length-1].id
+            lastId = parseInt(Partners[Partners.length-1]._id)
         }        
         return lastId
     }
@@ -227,7 +228,7 @@ class Event{
        static getLastId() {
         let lastId = 0
         if (Events.length > 0) {
-            lastId = Events[Events.length-1].id
+            lastId = parseInt(Events[Events.length-1]._id)
         }        
         return lastId
     }
