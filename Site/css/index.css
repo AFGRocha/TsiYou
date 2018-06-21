@@ -40,13 +40,14 @@
       /* Footer*/
       .tsiyou-footer{
 
-        background-color: rgb(14, 14, 14);
-        padding: 5px
+        background-color: rgb(41, 41, 41);
+        padding: 5px;
+        line-height: 80%;
+        
       }
 
       .tsiyou-footer p{
           color: white;
-          padding-top: 7px;
       }
       /*  */
 
