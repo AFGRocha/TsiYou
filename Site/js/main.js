@@ -601,7 +601,7 @@ function renderPartners(){
             
             
             str += '<div class="col-sm-4 col-md-4 col-lg-4">'
-            str += '<center><img src="' + Partners[i]._image + '" style="position:relative"></center>'
+            str += '<center><img src="' + Partners[i]._image + '" width="300px" style="position:relative"></center>'
 
             str += '</div><br><br>'
             //str += '<div class="col-md-1 col-lg-1"></div>'
