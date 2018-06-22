@@ -229,20 +229,49 @@ function tableUsers(){
 
 function tableEvents(){
 
+    let studentEmails = ""
+
+    for(let i = 0; i < Users.length; i++){
+
+        if(Users[i].docente != 1 && Users[i].admin !=1){
+            studentEmails += Users[i]._email + ","
+        }
+        console.log(studentEmails)
+    }
+
+    
                 let tblUser = document.getElementById("tblMain")
 
                 //Clear na tabela
                 tblUser.innerHTML = ""
+                
          
                 //Counter responsavel por identificar os users
                 let counter = 0
          
                 //string com o que vai conter a tabela
+                let emailBody = ""
                 let str = ""
-                str = "<thead class='thead-dark'><tr><th>Código</th><th>Nome</th><th>Descrição</th><th>Data</th><th>Hora</th><th>Local</th><th>Categoria</th><th>Respónsavel</th><th>Imagem</th><th>Ações</th></tr></thead><tbody>"
+
+                
+                
+                str = "<thead class='thead-dark'><tr><th>Código</th><th>Nome</th><th>Descrição</th><th>Data</th><th>Hora</th><th>Local</th><th>Categoria</th><th>Respónsavel</th><th>Imagem</th><th>Ações</th><th></th></tr></thead><tbody>"
          
                 //Atualiza a tabela com o conteudo do array Events
                 for (let i = 0; i < Events.length;i++){
+
+                    //Email notif
+                    emailBody += Events[i]._name + "%0D%0A"
+                    emailBody += Events[i]._desc + "%0D%0A"
+                    emailBody += Events[i]._data + "%0D%0A"
+                    emailBody += Events[i]._hour + "%0D%0A"
+                    emailBody += Events[i]._local + "%0D%0A"
+                    emailBody += Events[i]._category + "%0D%0A"
+                    emailBody += Events[i]._accountable + "%0D%0A"
+                    emailBody += "Para%20ver%20mais%20vai%20a%20tsiyou.pt%0D%0A"
+                    
+
+                    //Render on table
                     str += "<tr>"
                     str += "<td>" + Events[i]._id + "</td>"
                     str += "<td>" + Events[i]._name + "</td>"
@@ -254,6 +283,7 @@ function tableEvents(){
                     str += "<td>" + Events[i]._accountable + "</td>"
                     str += "<td><img src='" + Events[i]._image + "'></td>"
                     str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'></td>"  
+                    str += "<td><a type='button' class='a-button' href='mailto:" + studentEmails + "?Subject=Nova%20Atividade:%20" + Events[i]._name +"&body=" + emailBody + "' target='_top'>Notificar por email</a></td>"  
                     
          
          
