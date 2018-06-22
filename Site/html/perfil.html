@@ -130,7 +130,7 @@
   <!-- Docentes  <div class="container" id="Parcerias" style="padding-top:60px;  margin-left: 250px;"> -->
   <div class="tsipt bg-dark text-dark">
     <center>
-   <div style="padding-top:60px;padding-bottom:60px;">
+   <div style="padding-top:60px;">
         <div class="card perfil" style="width: 80rem;">
                 <div class="card-body">
                   <img id="profilePhoto" style="float: left; margin-right:10px" width="400" alt="Image" src="https://www.w3schools.com/bootstrap4/img_avatar3.png">
@@ -154,8 +154,20 @@
                 </div>
             </div>
    </div>
-        
+     
+
+
+
     </center> 
+
+        <!-- Meus Eventos -->
+  <div class="tsipt bg-dark text-white">
+    <center><p class="tsiyou-title">Os Meus Eventos</p>
+    <div class="container" id="divmyEvents">
+   
+    </div>
+    <br>
+  </div> 
   </div>
 
 
@@ -210,6 +222,46 @@
 </div>
 </div>
 
+
+<div class="container">
+  <!-- The Event Modal -->
+<div class="modal" id="eventModal">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<!-- Modal Header -->
+<div class="modal-header">
+<h4 class="modal-title" id="openEventTitle">Modal Heading</h4>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+<img src=""  class="rounded float-left marginimg" id ="openEventImage"></img>
+
+<p id="openEventData"></p>
+<p id="openEventLocal"></p>
+<p id="openEventCategory"></p>
+<p id="openEventAccountable"></p>
+<br>
+<p id="openEventDesc"></p>
+
+<button type="button" class="btn btn-b4" style="display:inlie" id="removeMyEvent">Remover dos  Meus Eventos</button>
+<button type="button" class="btn btn-b4" style="display:none" id="viewCo">Ver Comentários/Pontuação</button>
+</div>
+<div>
+</div>
+
+
+<!-- Modal footer -->
+<div class="modal-footer">
+<button type="button" class="btn btn-b4" data-dismiss="modal">Close</button>
+</div>
+
+</div>
+</div>
+</div>
+</div>    
 
 
 

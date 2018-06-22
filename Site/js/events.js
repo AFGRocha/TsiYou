@@ -478,7 +478,7 @@ function renderRec(){
             str += '<h5 class="card-title text-dark">' + recArray[i]._name + '</h5>'  
             str += '<p class="card-title text-dark">' + recArray[i]._data + '</p>' 
             str += '<p class="card-title text-dark">' + recArray[i]._local + '</p>'  
-            str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="btn openEvent" value="Ver mais" id="'+ eventCounter + '"></center>' 
+            str += '<br><center><input type="button" data-toggle="modal" data-target="#eventModal" class="btn btn-b4 openEvent2" value="Ver mais" id="'+ eventCounter + '"></center>' 
             str += '</div></div></div>'
 
             divRec.innerHTML = str
@@ -493,4 +493,59 @@ function renderRec(){
 
             }
         }
+
+
+          //Abrir modal do Evento
+      let btnOpen = document.getElementsByClassName("openEvent2")
+
+
+      for(let i = 0; i < btnOpen.length; i++){
+          btnOpen[i].addEventListener("click", function(){
+            
+            let currentEvent = i
+            let openEventTitle = document.getElementById("openEventTitle")
+            let openEventImage = document.getElementById("openEventImage")
+            let openEventDesc = document.getElementById("openEventDesc")
+            let openEventData = document.getElementById("openEventData")
+            let openEventLocal = document.getElementById("openEventLocal")
+            let openEventCategory = document.getElementById("openEventCategory")
+            let openEventAccountable = document.getElementById("openEventAccountable")
+            let divComment = document.getElementById("divComment")
+
+            openEventTitle.innerHTML = Events[i]._name
+            openEventImage.src = Events[i]._image
+            openEventDesc.innerHTML = "Descrição: " + Events[i]._desc
+            openEventData.innerHTML = "Data e hora: " + Events[i]._data + " " + Events[i]._hour
+            openEventLocal.innerHTML = "Local: " + Events[i]._local
+            openEventCategory.innerHTML ="Categoria:  " + Events[i]._category
+            openEventAccountable.innerHTML ="Responsável: " + Events[i]._accountable
+            
+            
+            //Envia o comentario 
+            let btnComment =  document.getElementById("viewCo")
+        
+            //Verificar se o evento ja ocorreu 
+            
+            let today = new Date();
+            let d = today.getTime()
+            console.log(d)
+            let timeTime = Date.parse(Events[i]._data)
+            console.log("Milisegundos do evento: " + timeTime)
+
+
+                if(timeTime < d){
+                    btnComment.style.display = "inline"
+                }
+    
+                else{
+                    btnComment.style.display = "none"
+                }
+                btnComment.addEventListener("click", function (event) {
+
+                    localStorage.openEvent = JSON.stringify(Events[i])
+
+                    location.replace("../html/evento.html")
+                })
+          }) 
+      }
 }

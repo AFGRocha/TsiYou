@@ -17,9 +17,12 @@ function renderThisEvent(){
     let openEventLocal = document.getElementById("openEventLocal")
     let openEventCategory = document.getElementById("openEventCategory")
     let openEventAccountable = document.getElementById("openEventAccountable")
+    let openEventScore = document.getElementById("openEventScore")
     let divComment = document.getElementById("divComment")
-    
+
+    if (localStorage.getItem("loggedUser")) {
     let currentUser = JSON.parse(localStorage.loggedUser)
+    }
 
     openEventTitle.innerHTML = myEvent._name
     openEventImage.src = myEvent._image
@@ -28,6 +31,7 @@ function renderThisEvent(){
     openEventLocal.innerHTML = "Local: " + myEvent._local
     openEventCategory.innerHTML ="Categoria:  " + myEvent._category
     openEventAccountable.innerHTML ="Responsável: " + myEvent._accountable
+    openEventScore.innerHTML = "Pontuação: " + myEvent.average
 
 
     //
@@ -51,8 +55,8 @@ function renderThisEvent(){
        let timeTime = Date.parse(myEvent._data)
        console.log("Milisegundos do evento: " + timeTime)
 
+     
        if (localStorage.getItem("loggedUser")) {
-
            output.innerHTML = slider.value;
            
            slider.oninput = function() {
@@ -79,6 +83,7 @@ function renderThisEvent(){
                txtValor.style.display = "none"
                btnScore.style.display = "none"
            }
+        }
            btnComment.addEventListener("click", function (event) {
         
                event.preventDefault()
@@ -107,7 +112,7 @@ function renderThisEvent(){
 
 
            })
-       }
+       
 
    //Carrega os comentarios do evento
        divComment.innerHTML = ""
@@ -136,7 +141,8 @@ function renderThisEvent(){
        btnScore.addEventListener("click", function (event) {
         
         event.preventDefault()
-        
+        let currentUser = JSON.parse(localStorage.loggedUser)
+
         let compare = 0
 
         for(let i = 0; i < currentUser.myScores.length; i++){ 

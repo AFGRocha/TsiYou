@@ -308,40 +308,38 @@ class Comment{
   }
 }
 //Hard code comments
-let Comments = []
-let comment1 = new Comment("Zé Silva","","Gosto muito deste ventos")
-Comments.push(comment1)
-Comments.push(comment1)
-Comments.push(comment1)
+let comment1 = new Comment("José Silva","","Gostei muito deste evento")
 
 
 //Hard code testimonails
 let Testimonials = []
-let testi1 = new Testimonial("Zé Silva","","Gosto muito de TSIW :D")
+let testi1 = new Testimonial("Óscar Sousa","https://imginger.s-ul.eu/hWPYJaZj","Fiz a escolha correta em ter optado por TSIW. Sinto que estou preparado para o futuro.")
 Testimonials.push(testi1)
 Testimonials.push(testi1)
-Testimonials.push(testi1)
+
 
 //Hard code users 
 let Users = []
 let Admin1 = new User("Admin","admin123","admin@admin.com")
 Admin1.admin = 1
 Users.push(Admin1)
-let docenteMario = new User("Mariozinho","mario123","mario@mario.com")
+let docenteMario = new User("mpinto","mario123","mario@esmad.com")
 docenteMario.docente = 1
 docenteMario.name = "Mário Pinto"
 docenteMario.image = "https://www.eseig.ipp.pt/kmilt/images/mariopinto.jpg"
 Users.push(docenteMario)
 
-let docenteRicardo = new User("rqueiros","ric123","queiros@queiros.com")
+let docenteRicardo = new User("rqueiros","ric123","queiros@esmad.com")
 docenteRicardo.docente = 1
 docenteRicardo.name = "Ricardo Queirós"
 docenteRicardo.image = "https://www.eseig.ipp.pt/kmilt/images/rq.jpg"
 Users.push(docenteRicardo)
 
-
-
-Users.push(docenteMario)
+let docenteLino = new User("lino","lino123","lino@esmad.com")
+docenteLino.docente = 1
+docenteLino.name = "Lino Oliveira"
+docenteLino.image = "https://www.eseig.ipp.pt/kmilt/images/lino.jpg"
+Users.push(docenteLino)
 
 
 
@@ -349,35 +347,32 @@ Users.push(docenteMario)
 
 //Tags
 
-let allTags = ["Seminario","teste"]
+let allTags = ["Seminário","Conferência"]
 
 //Hard code parcerias 
 let Partners = []
 let testPartner = new Partner("Nonius Software","Moreira da Maia","https://www.noniussoftware.com/en/","https://www.noniussoftware.com/wp-content/uploads/2015/04/Logo_Nonius.png")
-
+let testPartner2 = new Partner("FABAMAQ0","Boavista","https://www.fabamaq.com/","https://www.fabamaq.com/files/modulos_config_site/1_1.png")
+let testPartner3 = new Partner("Planeta Virtual","Porto","http://www.planetavirtual.pt/","http://www.planetavirtual.pt/images/logoHeader.png")
+let testPartner4 = new Partner("Blip","Porto","https://blip.pt/","https://blip.pt/content/themes/ppb/assets/images/blip-logo.svg")
 Partners.push(testPartner)
-Partners.push(testPartner)
-Partners.push(testPartner)
-Partners.push(testPartner)
+Partners.push(testPartner3)
+Partners.push(testPartner4)
+Partners.push(testPartner2)
 
 
 //Hard code events
 
 let Events = []
-let eventTest = new Event("ESMAPP","O ESMAPP é um evento onde se pretende demonstrar as aplicaçoes desenvolvidas pelos alunos de 3º ano de TSIW","2018-04-19","Teste","ESMAD - Sala B201","-Seminario","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-Events.push(eventTest)
-let eventTest2 = new Event("ESMAPP2","Algo","2018-04-19","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-Events.push(eventTest2)
-let eventTest3 = new Event("ESMAPP3","Algo","2018-07-20","Teste","ESMAD - Sala B201","-teste","teste","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
-Events.push(eventTest3)
-/*
-Events.push(eventTest)
-Events.push(eventTest)
-Events.push(eventTest)
-Events.push(eventTest)
-Events.push(eventTest)*/
+let esmapp = new Event("ESMAPP","O ESMAPP é um evento onde se pretende demonstrar as aplicaçoes desenvolvidas pelos alunos de 3º ano de TSIW","2018-04-19","11:00","ESMAD - Sala B201","-Seminário","Mário Pinto","https://www.esmad.ipp.pt/noticias/esmapp-1a-edicao-do-projeto-interdisciplinar/image_mini")
+Events.push(esmapp)
+let csii = new Event("CSII","No próximo dia 18 de maio irá realizar-se na Escola Superior de Media Artes e Design, a 2.ª edição da Conferência de Sistemas Interativos e Inteligentes, este ano subordinado ao tema “Creative Industry”.","2018-05-18","11:00 ","Auditório Luís Soares","-Conferência","Mário Pinto","https://www.esmad.ipp.pt/noticias/creative-industry-conferencia-de-sistemas-interativos-e-inteligentes/image_mini")
+Events.push(csii)
+let summer = new Event("MAD Summer School","MAD SUMMER SCHOOL is an intense learning experience and aims to be showcase of the educational offer of ESMAD: FILM & PHOTOGRAPHY, DESIGN, MEDIA DIGITAL AND WEB DEVELOPMENT.","2018-07-16","Teste","ESMAD","-Seminário","Admin","https://www.esmad.ipp.pt/news/mad-international-summer-school/image_mini")
+Events.push(summer)
 
-eventTest2.comments.push(comment1)
+
+csii.comments.push(comment1)
 
 
 function storage(){

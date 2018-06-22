@@ -17,9 +17,6 @@ function renderDocentes(){
 
     let counter = 0
     let str = ""
-    let w = window.innerWidth;
-    let h = window.innerHeight;
-
   
         for(let i = 0; i < Users.length; i++){
 
