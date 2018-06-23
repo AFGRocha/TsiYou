@@ -8,7 +8,16 @@ window.onload = function() {
     renderDocentes()
     renderPartners()
 
- 
+
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    document.getElementById("featImg").src = Events[Events.length-1]._image
+    document.getElementById("featTitle").innerHTML = Events[Events.length-1]._name
+
+    if(w <= 480){
+        document.getElementById("feature").style.width ="20rem"
+    }
+
         document.getElementsByTagName("BODY")[0].onresize = function() {
             let w = window.innerWidth;
             let h = window.innerHeight;
@@ -17,6 +26,14 @@ window.onload = function() {
             renderDocentes()
             renderPartners()
             renderTestimonials()
+
+            if(w <= 480){
+                document.getElementById("feature").style.width ="20rem"
+            }
+
+            else{
+                document.getElementById("feature").style.width ="30rem"
+            }
         } 
 }
 

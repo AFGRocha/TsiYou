@@ -63,14 +63,7 @@
         
       }
 
-      .tsiyou-landing p {
-        position: relative;
-        top: 300px;
-        color: white;
-        font-size: 18px;
-        font-family: 'Libre Franklin', sans-serif;
-        font-weight: 100;
-      }
+     
 
 
       .btn-tsiyou{
@@ -81,7 +74,7 @@
         font-size: 24px;
         background-color: #ea5422;
         position: relative;
-        top: 300px;
+        top: 50px;
         color: white;
         font-family: 'Libre Franklin', sans-serif;
         margin:0 auto;
