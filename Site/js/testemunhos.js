@@ -13,7 +13,16 @@ window.onload = function() {
     
     sendTest()
     if (localStorage.getItem("loggedUser")) {
-        document.getElementById("addTest").style.display = "inline"
+        let currentUser = JSON.parse(localStorage.loggedUser)
+
+        if(currentUser.admin == 1 || currentUser.docente == 1){
+            document.getElementById("addTest").style.display = "none"
+        }
+
+        else{
+            document.getElementById("addTest").style.display = "inline"
+        }
+        
     }
 }
 
@@ -102,13 +111,15 @@ function renderTestimonials(){
         
     let btnSend = document.getElementById("addMyTest")
     let textTest = document.getElementById("textTest")
+    let currentUser = JSON.parse(localStorage.loggedUser)
+
+   
 
     btnSend.addEventListener("click", function(){
 
         if(textTest.value != ""){
             
-            let currentUser = JSON.parse(localStorage.loggedUser)
-
+            
             let newTest = new Testimonial(currentUser.name,currentUser.image,textTest.value)
     
             if(localStorage.getItem("sentTest")){
@@ -116,7 +127,8 @@ function renderTestimonials(){
                 getTest.push(newTest)
                 localStorage.sentTest = JSON.stringify(getTest)
                 console.log(newTest)
-    
+                alert("Testemunho enviado")
+                location.reload()
             }
       
             else{
@@ -124,6 +136,8 @@ function renderTestimonials(){
                 storeTest.push(newTest)
                 localStorage.sentTest = JSON.stringify(storeTest)
                 console.log(newTest)
+                alert("Testemunho enviado")
+                location.reload()
             }
         }
 

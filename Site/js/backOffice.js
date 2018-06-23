@@ -77,6 +77,8 @@ function tableUsers(){
     
     let tblUser = document.getElementById("tblMain")
 
+    let currentUser  = JSON.parse(localStorage.loggedUser)
+
        //Clear na tabela
        tblUser.innerHTML = ""
 
@@ -112,21 +114,44 @@ function tableUsers(){
            str += "<td>" + Users[i]._email + "</td>"
            str += "<td><img src='" + Users[i].image + "'></td>"
 
-           if (Users[i].docente == 1 && Users[i].admin == 1 ) {
-            str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Retirar Admin' id='"+ counter + "'></td>"
+
+           if(currentUser.admin == 1){
+            if (Users[i].docente == 1 && Users[i].admin == 1 ) {
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Retirar Admin' id='"+ counter + "'></td>"
+               }
+    
+               else if (Users[i].docente == 1 && Users[i].admin == 0 ) {
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Tornar Admin' id='"+ counter + "'></td>"
+               }
+    
+               else if (Users[i].docente == 0 && Users[i].admin == 1 ) {
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Retirar Admin' id='"+ counter + "'></td>"
+               }
+    
+               else{
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Tornar Admin' id='"+ counter + "'></td>"  
+               }
            }
 
-           else if (Users[i].docente == 1 && Users[i].admin == 0 ) {
-            str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Tornar Admin' id='"+ counter + "'></td>"
-           }
+           else if(currentUser.docente == 1){
+            if (Users[i].docente == 1 && Users[i].admin == 1 ) {
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'></td>"
+               }
+    
+               else if (Users[i].docente == 1 && Users[i].admin == 0 ) {
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'></td>"
+               }
+    
+               else if (Users[i].docente == 0 && Users[i].admin == 1 ) {
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'></td>"
+               }
+    
+               else{
+                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'></td>"  
+               }
 
-           else if (Users[i].docente == 0 && Users[i].admin == 1 ) {
-            str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Retirar Admin' id='"+ counter + "'></td>"
            }
-
-           else{
-            str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'><input type='button' class='addMin' value='Tornar Admin' id='"+ counter + "'></td>"  
-           }
+        
 
 
            
@@ -417,7 +442,7 @@ function tableSentTest(){
         str += "<td>" + sentTest[i]._user + "</td>"
         str += "<td>" + sentTest[i]._image + "</td>"
         str += "<td>" + sentTest[i]._text + "</td>"
-        str += "<td><input type='button' class='aceitar' value='Aceitar' id='"+ counter + "'>" + "<input type='button' class='remover' value='Não Aceitar' id='"+ counter + "'></td>"
+        str += "<td><input type='button' class='aceitar' value='Aceitar' id='"+ counter + "'>" + "<input type='button' class='remover2' value='Não Aceitar' id='"+ counter + "'></td>"
                 
         str +="</tr>"
         counter++
@@ -426,19 +451,19 @@ function tableSentTest(){
     tblUser.innerHTML = str
 
     //Cria o butao remover que remove o respetivo testemunho de acordo o seu ID
-    let remove = document.getElementsByClassName("remover")
+    let remove2 = document.getElementsByClassName("remover2")
 
 
-    for(let i = 0; i < remove.length; i++){
-        remove[i].addEventListener("click", function(){
+    for(let i = 0; i < remove2.length; i++){
+        remove2[i].addEventListener("click", function(){
 
-            console.log(remove[i].id)
+            console.log(remove2[i].id)
 
-            let delet = parseInt(remove[i].id)
+            let delet = parseInt(remove2[i].id)
 
-            Partners.splice(delet,1)
+            sentTest.splice(delet,1)
 
-            localStorage.allPartners = JSON.stringify(Partners)
+            localStorage.sentTest = JSON.stringify(sentTest)
 
             tableSentTest()
 
