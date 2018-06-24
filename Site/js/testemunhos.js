@@ -79,7 +79,7 @@ function renderTestimonials(){
         }
     }
 
-    if (w <= 1300){
+    if (w <= 1300 && w > 656){
         for(let i = 0; i < Testimonials.length; i++){
 
        
@@ -103,7 +103,58 @@ function renderTestimonials(){
 
         }
     }
+
+    else if(w < 656 && w > 410){
     
+         for(let i = 0; i < Testimonials.length; i++){
+
+       
+            divTest.innerHTML = ""
+            
+            str += '<div class="col-sm-12 col-md-12 col-lg-12">'
+            str += '<div class="card" style="width: 25rem;">'
+            str += '<div class="card-body">'
+            if(Testimonials[i]._image == ""){
+                str += "<img id='profilePhoto' style='float: left; margin-right:10px' width='200' alt='Image' src='https://www.w3schools.com/bootstrap4/img_avatar3.png'>"
+            }
+           
+            else{
+                str += "<img id='profilePhoto' style='float: left; margin-right:10px' width='200' alt='Image' src='" + Testimonials[i]._image + "'>"
+            }
+            str += '<h5 class="text-dark">' + Testimonials[i]._user + '</h5>'  
+            str += '<p class="card-title text-dark">' + Testimonials[i]._text + '</p>'  
+            str += '</div></div></div><br><br>'
+
+            divTest.innerHTML = str
+
+        }
+    }
+
+
+    else if(w <= 410){
+        for(let i = 0; i < Testimonials.length; i++){
+
+       
+            divTest.innerHTML = ""
+            
+            str += '<div class="col-sm-12 col-md-12 col-lg-12">'
+            str += '<div class="card" style="width: 20rem;">'
+            str += '<div class="card-body">'
+            if(Testimonials[i]._image == ""){
+                str += "<img id='profilePhoto' style='float: left; margin-right:10px' width='150' alt='Image' src='https://www.w3schools.com/bootstrap4/img_avatar3.png'>"
+            }
+           
+            else{
+                str += "<img id='profilePhoto' style='float: left; margin-right:10px' width='150' alt='Image' src='" + Testimonials[i]._image + "'>"
+            }
+            str += '<h5 class="text-dark">' + Testimonials[i]._user + '</h5>'  
+            str += '<p class="card-title text-dark">' + Testimonials[i]._text + '</p>'  
+            str += '</div></div></div><br><br>'
+
+            divTest.innerHTML = str
+
+        }
+    }
  }
 
 
@@ -112,6 +163,8 @@ function renderTestimonials(){
     let btnSend = document.getElementById("addMyTest")
     let textTest = document.getElementById("textTest")
     let currentUser = JSON.parse(localStorage.loggedUser)
+
+    
 
    
 
