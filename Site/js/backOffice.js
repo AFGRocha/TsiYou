@@ -135,19 +135,19 @@ function tableUsers(){
 
            else if(currentUser.docente == 1){
             if (Users[i].docente == 1 && Users[i].admin == 1 ) {
-                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'></td>"
+                str += "<td><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'></td>"
                }
     
                else if (Users[i].docente == 1 && Users[i].admin == 0 ) {
-                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'></td>"
+                str += "<td><input type='button' class='addDoc' value='Retirar Docente' id='"+ counter + "'></td>"
                }
     
                else if (Users[i].docente == 0 && Users[i].admin == 1 ) {
-                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'></td>"
+                str += "<td><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'></td>"
                }
     
                else{
-                str += "<td><input type='button' class='remover' value='Remover' id='"+ counter + "'><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'></td>"  
+                str += "<td><input type='button' class='addDoc' value='Tornar Docente' id='"+ counter + "'></td>"  
                }
 
            }

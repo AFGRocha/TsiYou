@@ -15,7 +15,7 @@ window.onload = function() {
     if (localStorage.getItem("loggedUser")) {
         let currentUser = JSON.parse(localStorage.loggedUser)
 
-        if(currentUser.admin == 1 || currentUser.docente == 1){
+        if(currentUser.docente == 1){
             document.getElementById("addTest").style.display = "none"
         }
 

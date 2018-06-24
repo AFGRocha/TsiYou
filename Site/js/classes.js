@@ -553,8 +553,10 @@ function account(){
              let myUserArray  = JSON.parse(localUsers)
              myUserArray.push(myUser)
              localStorage.allUsers = JSON.stringify(myUserArray)
+             alert("Conta feita")
              signupBtn.reset()
              $('#signupModal').modal('hide');
+             location.reload()
          }
          else{
              signChecker.innerHTML = "Passwords não estao iguais"
